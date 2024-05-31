@@ -69,10 +69,6 @@ def load_images(image_folder, num_images=5):
         images.extend([os.path.join(folder_path, img) for img in os.listdir(folder_path)[:num_images]])
     return images
 
-
-
-
-
     # Main Page - Team Presentation
     if selected_menu == "Team Presentation":
         st.title("Teampresentation")
