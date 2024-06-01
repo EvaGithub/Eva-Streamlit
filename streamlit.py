@@ -1,6 +1,3 @@
-Sure! Here is the updated code with "Participants" removed from the sidebar, and "Data Science Bootcamp March 2024" added to the header before the menu.
-
-```python
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -130,4 +127,3 @@ if selected_menu == "Results":
 if selected_menu == "Future work":
     st.title("Future work")
     st.markdown("Details about the future work go here.")
-```
