@@ -106,7 +106,7 @@ if X_train is not None and Y_train is not None and X_test is not None:
     # Problem context
     if selected_menu == "Problem":
         # Convert image to base64 string
-        image_path = "Rakuten_challenge.jpg"
+        image_path = "Rakuten_challenge2.jpg"
         base64_image = get_base64_image(image_path)
 
         if base64_image:
