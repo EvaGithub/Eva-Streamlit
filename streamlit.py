@@ -1,3 +1,4 @@
+# Import necessary libraries
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,7 +7,7 @@ from PIL import Image
 import base64
 import os
 
-# Function to get base64 of an image
+# Function to convert image to base64 for HTML embedding
 def get_base64_image(image_path):
     try:
         with open(image_path, "rb") as img_file:
@@ -15,35 +16,35 @@ def get_base64_image(image_path):
         st.error(f"File not found: {image_path}")
         return None
 
-# Define custom CSS for light business blue tone and white tone
+# Custom CSS to style the app
 st.markdown("""
     <style>
         .main {
-            background-color: #ffffff; /* White tone for main page */
+            background-color: #ffffff; /* White background for the main page */
         }
         .sidebar .sidebar-content {
-            background-color: #ADD8E6; /* Light blue tone for sidebar */
+            background-color: #ADD8E6; /* Light blue for the sidebar */
         }
         .reportview-container .main .block-container {
-            background-color: #ffffff; /* White tone for main content area */
+            background-color: #ffffff; /* White background for main content */
         }
         .css-18e3th9, .css-1d391kg {
-            background-color: #ADD8E6; /* Light blue tone for upper menu */
+            background-color: #ADD8E6; /* Light blue for the top menu bar */
         }
         .stMarkdown p {
-            color: #495057;
+            color: #495057; /* Dark grey for text */
         }
-        .stButton>button {
-            background-color: #007bff;
-            color: #fff;
+        .stButton > button {
+            background-color: #007bff; /* Blue for buttons */
+            color: #fff; /* White text on buttons */
         }
         h1, h2, h3, h4, h5, h6 {
-            color: #343a40;
+            color: #343a40; /* Dark grey for headings */
         }
         .participants-title {
             font-size: 20px;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 20px; /* Space above the participants title */
         }
         .header-container {
             position: relative;
@@ -51,85 +52,63 @@ st.markdown("""
             height: 250px;
             background-size: contain;
             background-position: top center;
-            background-repeat: no-repeat; /* Prevents image from repeating */
+            background-repeat: no-repeat; /* Ensures the image doesn't repeat */
         }
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar header and menu
+# Setup the sidebar and main menu
 st.sidebar.title("Data Science Bootcamp March 2024")
-st.sidebar.title("Menu")
 menu_items = ["Team", "Problem", "Data", "Models", "Results", "Future work"]
-selected_menu = st.sidebar.radio("", menu_items, index=0, key="menu")
+selected_menu = st.sidebar.radio("Menu", menu_items, index=0)
 
 # Load the datasets
-@st.cache_data
+@st.cache
 def load_data():
     try:
         X_train = pd.read_csv('X_train_update.csv')
         Y_train = pd.read_csv('Y_train.csv')
         X_test = pd.read_csv('X_test_update.csv')
+        return X_train, Y_train, X_test
     except FileNotFoundError as e:
         st.error(f"Error loading CSV files: {e}")
         return None, None, None
 
-    return X_train, Y_train, X_test
-
-@st.cache_data
-def load_images(image_folder, num_images=5):
-    images = []
-    for folder in ['image_train', 'image_test']:
-        folder_path = os.path.join(image_folder, folder)
-        images.extend([os.path.join(folder_path, img) for img in os.listdir(folder_path)[:num_images]])
-    return images
-
 X_train, Y_train, X_test = load_data()
 
-if X_train is not None and Y_train is not None and X_test is not None:
-    # Define a function to display sample images
-    def display_images(image_paths):
-        fig, axes = plt.subplots(1, len(image_paths), figsize=(15, 5))
-        for img_path, ax in zip(image_paths, axes):
-            image = Image.open(img_path)
-            ax.imshow(image)
-            ax.axis('off')
-        st.pyplot(fig)
+# Display images function
+def display_images(image_paths):
+    fig, axes = plt.subplots(1, len(image_paths), figsize=(15, 5))
+    for img_path, ax in zip(image_paths, axes):
+        image = Image.open(img_path)
+        ax.imshow(image)
+        ax.axis('off')
+    st.pyplot(fig)
 
-    # Main Page - Team Presentation
-    if selected_menu == "Team":
-        st.title("Rakuten Classification Project")
+# App logic based on sidebar selection
+if selected_menu == "Team":
+    st.title("Rakuten Classification Project")
+    st.header("Team")
+    team_image = Image.open("Rakuten_team.png")
+    st.image(team_image, caption="Rakuten Project Team")
 
-        st.header("Team")
-        # Display the image
-        team_image = Image.open("Rakuten_team.png")
-        st.image(team_image, caption="Rakuten Project Team")
-
-    # Problem context
-    if selected_menu == "Problem":
-        # Convert image to base64 string
-        image_path = "Rakuten_challenge.jpg"
-        base64_image = get_base64_image(image_path)
-
-        if base64_image:
-            # Display the header image
-            st.markdown(f"""
-                <div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');">
-                </div>
-            """, unsafe_allow_html=True)
-            
-        st.markdown("""
+elif selected_menu == "Problem":
+    image_path = "Rakuten_challenge.jpg"
+    base64_image = get_base64_image(image_path)
+    if base64_image:
+        st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');"></div>""", unsafe_allow_html=True)
+    st.markdown("""
         ### Challenge Overview:
         - Classify products in Rakuten's e-commerce catalog using text and images.
         - Multimodal classification problem; improves product categorization.
-
         ### Data Source:
         - Rakuten France Multimodal Product Data Classification Challenge.
         - [Download Link](https://challengedata.ens.fr/challenges/35)
-
         ### Validation:
         - Competition site for validation and ranking.
         - [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
-        """)
+    """)
+
 
 # Placeholder for other sections
 if selected_menu == "Data":
