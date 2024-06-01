@@ -95,23 +95,21 @@ if selected_menu == "Team":
     st.image(team_image, caption="Rakuten Project Team")
 
 elif selected_menu == "Problem":
-    image_path = "Rakuten_challenge.jpg"
+    image_path = "Rakuten_challenge2.jpg"
     base64_image = get_base64_image(image_path)
     if base64_image:
         st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');"></div>""", unsafe_allow_html=True)
     
     st.markdown("""
-    <br>
-    <div style='margin-top: 20px;'></div>
-    ### Challenge Overview:
-    - Classify products in Rakuten's e-commerce catalog using text and images.
-    - Multimodal classification problem; improves product categorization.
-    ### Data Source:
-    - Rakuten France Multimodal Product Data Classification Challenge. [Download Link](https://challengedata.ens.fr/challenges/35)
-    ### Validation:
-    - Competition site for validation and ranking. [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
-""", unsafe_allow_html=True)
-
+        
+        ### Challenge Overview:
+        - Classify products in Rakuten's e-commerce catalog using text and images.
+        - Multimodal classification problem; improves product categorization.
+        ### Data Source:
+        - Rakuten France Multimodal Product Data Classification Challenge.  [Download Link](https://challengedata.ens.fr/challenges/35)
+        ### Validation:
+        - Competition site for validation and ranking. [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
+    """)
 
 
 # Placeholder for other sections
@@ -130,4 +128,3 @@ if selected_menu == "Results":
 if selected_menu == "Future work":
     st.title("Future work")
     st.markdown("Details about the future work go here.")
-
