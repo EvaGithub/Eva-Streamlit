@@ -79,7 +79,7 @@ if X_train is not None and Y_train is not None and X_test is not None:
 
     # Main Page - Team Presentation
     if selected_menu == "Team":
-        st.title("Rakuten Product Classification Project")
+        st.title("Rakuten Classification Project")
 
         st.header("Team")
         # Display the image
