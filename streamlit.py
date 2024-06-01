@@ -12,13 +12,13 @@ st.markdown("""
             background-color: #ffffff; /* White tone for main page */
         }
         .sidebar .sidebar-content {
-            background-color: #87CEFA; /* Light sky blue tone for sidebar */
+            background-color: #ADD8E6; /* Light blue tone for sidebar */
         }
         .reportview-container .main .block-container {
             background-color: #ffffff; /* White tone for main content area */
         }
         .css-18e3th9, .css-1d391kg {
-            background-color: #87CEFA; /* Light sky blue tone for upper menu */
+            background-color: #ADD8E6; /* Light blue tone for upper menu */
         }
         .stMarkdown p {
             color: #495057;
@@ -76,43 +76,39 @@ if X_train is not None and Y_train is not None and X_test is not None:
             ax.axis('off')
         st.pyplot(fig)
 
-   
-
     # Main Page - Team Presentation
     if selected_menu == "Team":
-    st.title("Rakuten Project Team Members")
+        st.title("Rakuten Project Team Members")
 
-    st.header("Team")
-    st.markdown("""
-    - **Eva Losada**: Data Science Padawan, Product Management Jedi
-    - **Mani Naru**: Data Science Padawan, Software Developer Jedi
-    - **João Catunda**: Data Science Padawan, Software Developer Sith
-    """)
-
+        st.header("Team")
+        st.markdown("""
+        - **Eva Losada**: Data Science Padawan, Product Management Jedi
+        - **Mani Naru**: Data Science Padawan, Software Developer Jedi
+        - **João Catunda**: Data Science Padawan, Software Developer Sith
+        """)
 
     # Problem context
     if selected_menu == "Problem":
-    st.title("Problem")
+        st.title("Problem")
 
-    st.header("Rakuten Product Classification Challenge")
-    st.markdown("""
-    ### Challenge Overview:
-    - Classify products in Rakuten's e-commerce catalog using text and images.
-    - Multimodal classification problem; improves product categorization.
+        st.header("Rakuten Product Classification Challenge")
+        st.markdown("""
+        ### Challenge Overview:
+        - Classify products in Rakuten's e-commerce catalog using text and images.
+        - Multimodal classification problem; improves product categorization.
 
-    ### Difficulty:
-    - Non-standardized, diverse data (text and images).
-    - Requires contextual analysis and advanced models.
+        ### Difficulty:
+        - Non-standardized, diverse data (text and images).
+        - Requires contextual analysis and advanced models.
 
-    ### Data Source:
-    - Rakuten France Multimodal Product Data Classification Challenge.
-    - [Download Link](https://challengedata.ens.fr/challenges/35)
+        ### Data Source:
+        - Rakuten France Multimodal Product Data Classification Challenge.
+        - [Download Link](https://challengedata.ens.fr/challenges/35)
 
-    ### Validation:
-    - Competition site for validation and ranking.
-    - [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
-    """)
-
+        ### Validation:
+        - Competition site for validation and ranking.
+        - [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
+        """)
 
 # Placeholder for other sections
 if selected_menu == "Data":
@@ -147,3 +143,4 @@ for member in team_members:
     if member['linkedin']:
         st.sidebar.markdown(f"[LinkedIn]({member['linkedin']})")
 
+          
