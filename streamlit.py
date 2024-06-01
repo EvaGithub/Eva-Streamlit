@@ -88,9 +88,8 @@ if X_train is not None and Y_train is not None and X_test is not None:
 
     # Problem context
     if selected_menu == "Problem":
-        st.title("Problem")
 
-        st.header("Rakuten Product Classification Challenge")
+        st.header("Rakuten Classification Challenge")
         st.markdown("""
         ### Challenge Overview:
         - Classify products in Rakuten's e-commerce catalog using text and images.
