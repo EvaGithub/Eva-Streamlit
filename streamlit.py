@@ -119,9 +119,8 @@ if selected_menu == "Data":
     choice = st.selectbox("Choose Visualization", options)
 
     if choice == "Target Variable":
-        st.subheader("Target Variable: y_train_balanced")
+        st.subheader("Target Variable")
         image = Image.open("y_train_balanced.jpg")
-        st.image(image, caption="Distribution of y_train_balanced")
 
     elif choice == "Duplicates":
         st.subheader("Text and Image Duplicates")
@@ -132,21 +131,21 @@ if selected_menu == "Data":
         with col2:
             image2 = Image.open("Image_duplicates.jpg")
             st.image(image2, caption="Image Duplicates")
-
+            
     elif choice == "Image Issues":
         st.subheader("Images Issues")
         col1, col2 = st.columns(2)
         with col1:
             image1 = Image.open("Images_issues1.jpg")
-            st.image(image1, caption="Images Issues 1")
+            
         with col2:
             image2 = Image.open("Images_issues2.jpg")
-            st.image(image2, caption="Images Issues 2")
+        
 
     elif choice == "Word Cloud":
         st.subheader("Word Cloud Visualization")
         image = Image.open("wordcloud.png")
-        st.image(image, caption="Word Cloud")
+        
 
 if selected_menu == "Models":
     st.title("Models")
