@@ -95,10 +95,6 @@ if X_train is not None and Y_train is not None and X_test is not None:
         - Classify products in Rakuten's e-commerce catalog using text and images.
         - Multimodal classification problem; improves product categorization.
 
-        ### Difficulty:
-        - Non-standardized, diverse data (text and images).
-        - Requires contextual analysis and advanced models.
-
         ### Data Source:
         - Rakuten France Multimodal Product Data Classification Challenge.
         - [Download Link](https://challengedata.ens.fr/challenges/35)
