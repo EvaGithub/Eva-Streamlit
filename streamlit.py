@@ -114,37 +114,52 @@ elif selected_menu == "Problem":
 
 # Placeholder for other sections
 if selected_menu == "Data":
+    st.title("Data Visualizations")
     options = ["Target Variable", "Duplicates", "Image Issues", "Word Cloud"]
     choice = st.selectbox("Choose Visualization", options)
 
     if choice == "Target Variable":
-        st.subheader("Target Variable")
-        image = Image.open("y_train_balanced.jpg")
+        st.subheader("Target Variable: y_train_balanced")
+        try:
+            image = Image.open("y_train_balanced.jpg")
+            st.image(image, caption="Distribution of y_train_balanced")
+        except FileNotFoundError:
+            st.error("File not found: y_train_balanced.jpg")
 
     elif choice == "Duplicates":
         st.subheader("Text and Image Duplicates")
-        col1, col2 = st.columns(2)
-        with col1:
+        try:
             image1 = Image.open("Text_duplicates.jpg")
-            st.image(image1, caption="Text Duplicates")
-        with col2:
             image2 = Image.open("Image_duplicates.jpg")
-            st.image(image2, caption="Image Duplicates")
-            
+            col1, col2 = st.columns(2)
+            with col1:
+                st.image(image1, caption="Text Duplicates")
+            with col2:
+                st.image(image2, caption="Image Duplicates")
+        except FileNotFoundError as e:
+            st.error(f"File not found: {e}")
+
     elif choice == "Image Issues":
-        st.subheader("Images Issues")
-        col1, col2 = st.columns(2)
-        with col1:
+        st.subheader("Image Issues")
+        try:
             image1 = Image.open("Images_issues1.jpg")
-            
-        with col2:
             image2 = Image.open("Images_issues2.jpg")
-        
+            col1, col2 = st.columns(2)
+            with col1:
+                st.image(image1, caption="Image Issues 1")
+            with col2:
+                st.image(image2, caption="Image Issues 2")
+        except FileNotFoundError as e:
+            st.error(f"File not found: {e}")
 
     elif choice == "Word Cloud":
-        st.subheader("Word Cloud Visualization")
-        image = Image.open("wordcloud.png")
-        
+        st.subheader("Word Cloud")
+        try:
+            image = Image.open("wordcloud.png")
+            st.image(image, caption="Word Cloud")
+        except FileNotFoundError:
+            st.error("File not found: wordcloud.png")
+
 
 if selected_menu == "Models":
     st.title("Models")
