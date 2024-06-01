@@ -83,7 +83,7 @@ if X_train is not None and Y_train is not None and X_test is not None:
 
         st.header("Team")
         # Display the image
-        team_image = Image.open("Rakuten_team.jpg")  # Make sure the image file is in the correct directory
+        team_image = Image.open("Rakuten_team.png")  
         st.image(team_image, caption="Rakuten Project Team")
 
     # Problem context
