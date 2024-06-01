@@ -49,14 +49,13 @@ st.markdown("""
         .header-container {
             position: relative;
             width: 100%;
-            padding-top: 10%; /* Controls the height and top positioning */
-            background-size: cover; /* Covers the full width, adjusting height accordingly */
+            height: 250px;
+            background-size: contain;
             background-position: top center;
             background-repeat: no-repeat; /* Ensures the image doesn't repeat */
         }
     </style>
 """, unsafe_allow_html=True)
-
 
 # Setup the sidebar and main menu
 st.sidebar.title("Data Science Bootcamp March 2024")
@@ -93,7 +92,7 @@ if selected_menu == "Team":
     team_image = Image.open("Rakuten_team.png")
     st.image(team_image, caption="Rakuten Project Team")
 
-if selected_menu == "Problem":
+elif selected_menu == "Problem":
     image_path = "Rakuten_challenge.jpg"
     base64_image = get_base64_image(image_path)
     if base64_image:
@@ -107,6 +106,7 @@ if selected_menu == "Problem":
         ### Validation:
         - Competition site for validation and ranking. [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
     """)
+
 
 # Placeholder for other sections
 if selected_menu == "Data":
@@ -124,5 +124,4 @@ if selected_menu == "Results":
 if selected_menu == "Future work":
     st.title("Future work")
     st.markdown("Details about the future work go here.")
-
 
