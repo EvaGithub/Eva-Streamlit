@@ -79,14 +79,12 @@ if X_train is not None and Y_train is not None and X_test is not None:
 
     # Main Page - Team Presentation
     if selected_menu == "Team":
-        st.title("Rakuten Project Team Members")
+        st.title("Rakuten Product Classification Project")
 
         st.header("Team")
-        st.markdown("""
-        - **Eva Losada**: Data Science Padawan, Product Management Jedi
-        - **Mani Naru**: Data Science Padawan, Software Developer Jedi
-        - **João Catunda**: Data Science Padawan, Software Developer Sith
-        """)
+        # Display the image
+        team_image = Image.open("Rakuten_team.jpg")  # Make sure the image file is in the correct directory
+        st.image(team_image, caption="Rakuten Project Team")
 
     # Problem context
     if selected_menu == "Problem":
