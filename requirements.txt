@@ -1,5 +1,6 @@
-pandas==2.2.2
+pandas==1.4.3
 seaborn==0.13.2
-seaborn==0.13.2
-pillow==10.3.0
+Pillow==10.3.0
 streamlit==1.35.0
+nltk==3.7
+
