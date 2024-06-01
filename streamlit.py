@@ -40,7 +40,7 @@ st.markdown("""
 
 # Sidebar menu
 st.sidebar.title("Menu")
-menu_items = ["Project Overview", "Datasets", "Exploratory Analysis", "Methodology", "Modeling", "Demo"]
+menu_items = ["Team", "Problem", "Data", "Models", "Results", "Future work"]
 selected_menu = st.sidebar.radio("", menu_items, index=0, key="menu")
 
 # Load the datasets
@@ -76,123 +76,60 @@ if X_train is not None and Y_train is not None and X_test is not None:
             ax.axis('off')
         st.pyplot(fig)
 
-    # Function to analyze datasets
-    def analyze_dataset(df, name):
-        st.subheader(f"Analysis of {name}")
-        st.write(f"**Shape:** {df.shape}")
-        st.write(f"**Number of duplicates:** {df.duplicated().sum()}")
-        st.write(f"**Number of null values:**\n{df.isnull().sum()}")
-        if 'designation' in df.columns:
-            st.write(f"**Number of missing designations:** {df['designation'].isnull().sum()}")
-        if 'description' in df.columns:
-            st.write(f"**Number of missing descriptions:** {df['description'].isnull().sum()}")
-        if 'designation' in df.columns:
-            st.write(
-                f"**Number of words in titles:**\n{df['designation'].apply(lambda x: len(str(x).split())).describe()}")
-        if 'description' in df.columns:
-            st.write(
-                f"**Number of words in descriptions:**\n{df['description'].apply(lambda x: len(str(x).split())).describe()}")
-        if 'imageid' in df.columns:
-            st.write(f"**Repetition of images:**\n{df['imageid'].value_counts().head()}")
-        st.write("---")
+   
 
-    # Main Page - Project Overview
-    if selected_menu == "Project Overview":
-        st.title("Rakuten Product Classification")
-        st.header("Context")
-        st.markdown("""
-        Accurate product classification enhances e-commerce efficiency by improving search accuracy, personalized recommendations, and inventory management, leading to better customer satisfaction and increased sales. For Rakuten, this means reduced operational costs and higher revenue.
+    # Main Page - Team Presentation
+    if selected_menu == "Team":
+    st.title("Rakuten Project Team Members")
 
-        This project involves large-scale multimodal classification, combining text mining and image processing to categorize products into predefined types. It requires proficiency in machine learning, deep learning, and data mining, aligning well with our team's expertise and the skills acquired during our training.
-        """)
-
-        st.header("Project Objectives")
-        st.markdown("""
-        To summarize, our objectives for this project were:
-        1. Train various models to classify products into different categories.
-        2. Fine-tune a method leveraging the most performant models.
-        3. Apply the developed method on the test set provided by Rakuten.
-        4. Develop an application to classify any new product in real-time.
-        """)
-
-    # Datasets
-    if selected_menu == "Datasets":
-        st.title("Datasets")
-
-        st.header("Data Input Summary")
-        st.markdown("""
-        The dataset includes approximately 99,000 product listings, with around 84,916 entries in the training set and 13,812 entries in the test set. The image data is around 2.2 GB, containing images of size 500x500 pixels. in the test set. Each image is 500x500 pixels in size.
-
-        The data are freely available on the Kaggle website.
-        """)
-
-        # Display the uploaded images instead of the text description
-        #st.header("Data Input Summary - Visual Representation")
-        image_path_1 = 'input_dataset.png'  # Path to the first image
-        st.image(image_path_1, caption='Dataset Structure 1', use_column_width=True)
-
-        # Display the head of each dataset
-        st.header("Dataset Previews")
-        st.subheader("X_train.csv")
-        st.write(X_train.head())
-
-        st.subheader("Y_train.csv")
-        st.write(Y_train.head())
-
-        st.subheader("X_test.csv")
-        st.write(X_test.head())
-
-        # Display sample images
-        st.header("Sample Images")
-        image_paths = load_images('images', num_images=5)
-        display_images(image_paths)
-
-        # Analyze each dataset
-        st.header("Detailed Analysis of Datasets")
-        analyze_dataset(X_train, "X_train.csv")
-        analyze_dataset(Y_train, "Y_train.csv")
-        analyze_dataset(X_test, "X_test.csv")
-
-        # Additional plots
-        st.header("Data Distribution and Visualization")
-
-        # Plot distribution of product type codes in Y_train
-        st.subheader("Distribution of Product Type Codes in Y_train")
-        fig1, ax1 = plt.subplots(figsize=(10, 6))
-        sns.countplot(y=Y_train.iloc[:, 1], ax=ax1)
-        ax1.set_title('Distribution of Product Type Codes')
-        ax1.set_xlabel('Count')
-        ax1.set_ylabel('Product Type Code')
-        st.pyplot(fig1)
+    st.header("Team")
+    st.markdown("""
+    - **Eva Losada**: Data Science Padawan, Product Management Jedi
+    - **Mani Naru**: Data Science Padawan, Software Developer Jedi
+    - **João Catunda**: Data Science Padawan, Software Developer Sith
+    """)
 
 
-        # Plot length of descriptions in X_train
-        st.subheader("Length of Descriptions in X_train")
-        X_train['Description Length'] = X_train['description'].apply(lambda x: len(str(x).split()))
-        fig2, ax2 = plt.subplots(figsize=(10, 6))
-        sns.histplot(X_train['Description Length'], bins=50, kde=True, ax=ax2)
-        ax2.set_title('Distribution of Description Lengths')
-        ax2.set_xlabel('Description Length')
-        ax2.set_ylabel('Frequency')
-        st.pyplot(fig2)
+    # Problem context
+    if selected_menu == "Problem":
+    st.title("Problem")
+
+    st.header("Rakuten Product Classification Challenge")
+    st.markdown("""
+    ### Challenge Overview:
+    - Classify products in Rakuten's e-commerce catalog using text and images.
+    - Multimodal classification problem; improves product categorization.
+
+    ### Difficulty:
+    - Non-standardized, diverse data (text and images).
+    - Requires contextual analysis and advanced models.
+
+    ### Data Source:
+    - Rakuten France Multimodal Product Data Classification Challenge.
+    - [Download Link](https://challengedata.ens.fr/challenges/35)
+
+    ### Validation:
+    - Competition site for validation and ranking.
+    - [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
+    """)
 
 
 # Placeholder for other sections
-if selected_menu == "Exploratory Analysis":
-    st.title("Exploratory Analysis")
-    st.markdown("Details about the exploratory analysis go here.")
+if selected_menu == "Data":
+    st.title("Data")
+    st.markdown("Details about the data analysis go here.")
 
-if selected_menu == "Methodology":
-    st.title("Methodology")
-    st.markdown("Details about the methodology go here.")
+if selected_menu == "Models":
+    st.title("Models")
+    st.markdown("Details about the models go here.")
 
-if selected_menu == "Modeling":
-    st.title("Modeling")
-    st.markdown("Details about the modeling go here.")
+if selected_menu == "Results":
+    st.title("Results")
+    st.markdown("Details about the results go here.")
 
-if selected_menu == "Demo":
-    st.title("Demo")
-    st.markdown("Details about the demo go here.")
+if selected_menu == "Future work":
+    st.title("Future work")
+    st.markdown("Details about the future work go here.")
 
 # Project team in the sidebar
 st.sidebar.markdown("**Data Science Project**")
