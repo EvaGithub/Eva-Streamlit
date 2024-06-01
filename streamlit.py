@@ -17,7 +17,6 @@ def get_base64_image(image_path):
         return None
 
 # Custom CSS to style the app
-# Custom CSS to style the app
 st.markdown("""
     <style>
         .main {
@@ -112,10 +111,55 @@ elif selected_menu == "Problem":
     """)
 
 
-# Placeholder for other sections
+ if X_train is not None and Y_train is not None:
+    X_train['description'].fillna('No description', inplace=True)
+    X_train['designation_length'] = X_train['designation'].apply(lambda x: len(word_tokenize(x)))
+    X_train['description_length'] = X_train['description'].apply(lambda x: len(word_tokenize(x)))
+    train_data = X_train.join(Y_train)
+
 if selected_menu == "Data":
     st.title("Data")
-    st.markdown("Details about the data analysis go here.")
+    st.sidebar.subheader("Visualization Options")
+    
+    # Visualization 1: Frequency Distribution of Product Type Codes
+    st.sidebar.subheader("Product Type Frequency Distribution")
+    all_classes = st.sidebar.checkbox("Show All Classes", True)
+    selected_classes = st.sidebar.multiselect("Select Classes", options=train_data['prdtypecode'].unique(), default=train_data['prdtypecode'].unique())
+    
+    if all_classes or not selected_classes:
+        filtered_data = train_data
+    else:
+        filtered_data = train_data[train_data['prdtypecode'].isin(selected_classes)]
+    
+    fig, ax = plt.subplots()
+    sns.countplot(y='prdtypecode', data=filtered_data, color="lightblue")
+    plt.title("Frequency Distribution of Product Type Codes")
+    st.pyplot(fig)
+    
+    # Visualization 2: Boxplot of Designation and Description Lengths
+    st.sidebar.subheader("Designation and Description Lengths")
+    show_designation = st.sidebar.checkbox("Show Designation Lengths", True)
+    show_description = st.sidebar.checkbox("Show Description Lengths", True)
+    
+    fig, ax = plt.subplots()
+    if show_designation:
+        sns.boxplot(x='prdtypecode', y='designation_length', data=train_data, color="green", ax=ax)
+    if show_description:
+        sns.boxplot(x='prdtypecode', y='description_length', data=train_data, color="red", ax=ax)
+    plt.title("Boxplot of Designation and Description Lengths")
+    plt.xticks(rotation=90)
+    st.pyplot(fig)
+    
+    # Visualization 3: Missing Descriptions by Product Type Code
+    st.sidebar.subheader("Missing Descriptions Analysis")
+    missing_data = train_data.copy()
+    missing_data['missing_description'] = missing_data['description'] == 'No description'
+    
+    fig, ax = plt.subplots()
+    sns.countplot(x='prdtypecode', hue='missing_description', data=missing_data)
+    plt.title("Missing Descriptions by Product Type Code")
+    plt.xticks(rotation=90)
+    st.pyplot(fig)e.")
 
 if selected_menu == "Models":
     st.title("Models")
