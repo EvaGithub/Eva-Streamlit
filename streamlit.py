@@ -3,7 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from PIL import Image
+import base64
 import os
+
+# Function to get base64 of an image
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
 
 # Define custom CSS for light business blue tone and white tone
 st.markdown("""
@@ -37,19 +43,10 @@ st.markdown("""
         }
         .header-container {
             position: relative;
-            text-align: center;
-            color: white;
-        }
-        .header-container img {
             width: 100%;
-            height: auto;
-        }
-        .header-container .text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: black;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -104,13 +101,13 @@ if X_train is not None and Y_train is not None and X_test is not None:
 
     # Problem context
     if selected_menu == "Problem":
+        # Convert image to base64 string
+        image_path = "Screenshot 2024-06-01 at 11.42.34.png"
+        base64_image = get_base64_image(image_path)
+
         # Display the header image
-        st.markdown("""
-            <div class="header-container">
-                <img src="Rakuten_challenge.jpg" alt="Rakuten Challenge">
-                <div class="text">
-                    <h1>Rakuten Classification Challenge</h1>
-                </div>
+        st.markdown(f"""
+            <div class="header-container" style="background-image: url('data:image/png;base64,{base64_image}');">
             </div>
         """, unsafe_allow_html=True)
 
@@ -144,3 +141,4 @@ if selected_menu == "Results":
 if selected_menu == "Future work":
     st.title("Future work")
     st.markdown("Details about the future work go here.")
+
