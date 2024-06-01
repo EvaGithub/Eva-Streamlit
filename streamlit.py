@@ -51,13 +51,13 @@ st.markdown("""
             position: relative;
             width: 100%;
             height: 250px;
-            background-size: contain;
-            background-position: center center; /* Changed to center the image */
+            background-size: cover; /* Adjusted to cover */
+            background-position: center center; /* Centered horizontally and vertically */
             background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+            border-bottom: 2px solid white; /* Adds a white border line at the bottom */
         }
     </style>
 """, unsafe_allow_html=True)
-
 
 # Setup the sidebar and main menu
 st.sidebar.title("Data Science Bootcamp March 2024")
@@ -99,6 +99,7 @@ elif selected_menu == "Problem":
     base64_image = get_base64_image(image_path)
     if base64_image:
         st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');"></div>""", unsafe_allow_html=True)
+    
     st.markdown("""
         ### Challenge Overview:
         - Classify products in Rakuten's e-commerce catalog using text and images.
