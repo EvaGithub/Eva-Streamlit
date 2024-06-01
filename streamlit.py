@@ -95,7 +95,7 @@ if selected_menu == "Team":
     st.image(team_image, caption="Rakuten Project Team")
 
 elif selected_menu == "Problem":
-    image_path = "Rakuten_challenge2.jpg"
+    image_path = "Rakuten_challenge3.jpg"
     base64_image = get_base64_image(image_path)
     if base64_image:
         st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');"></div>""", unsafe_allow_html=True)
