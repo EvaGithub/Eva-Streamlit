@@ -114,7 +114,6 @@ elif selected_menu == "Problem":
 
 # Placeholder for other sections
 if selected_menu == "Data":
-    st.title("Data Visualizations")
     options = ["Target Variable", "Duplicates", "Image Issues", "Word Cloud"]
     choice = st.selectbox("Choose Visualization", options)
 
