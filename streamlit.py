@@ -17,6 +17,7 @@ def get_base64_image(image_path):
         return None
 
 # Custom CSS to style the app
+# Custom CSS to style the app
 st.markdown("""
     <style>
         .main {
@@ -51,11 +52,12 @@ st.markdown("""
             width: 100%;
             height: 250px;
             background-size: contain;
-            background-position: top center;
+            background-position: center center; /* Changed to center the image */
             background-repeat: no-repeat; /* Ensures the image doesn't repeat */
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Setup the sidebar and main menu
 st.sidebar.title("Data Science Bootcamp March 2024")
