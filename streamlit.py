@@ -48,9 +48,10 @@ st.markdown("""
         .header-container {
             position: relative;
             width: 100%;
-            height: 250px; /* Adjusted height */
-            background-size: contain; /* Changed from 'cover' to 'contain' */
-            background-position: top center; /* Adjusted to show the top part of the image */
+            height: 250px;
+            background-size: contain;
+            background-position: top center;
+            background-repeat: no-repeat; /* Prevents image from repeating */
         }
     </style>
 """, unsafe_allow_html=True)
@@ -78,7 +79,7 @@ def load_data():
 def load_images(image_folder, num_images=5):
     images = []
     for folder in ['image_train', 'image_test']:
-        folder_path is os.path.join(image_folder, folder)
+        folder_path = os.path.join(image_folder, folder)
         images.extend([os.path.join(folder_path, img) for img in os.listdir(folder_path)[:num_images]])
     return images
 
@@ -115,9 +116,7 @@ if X_train is not None and Y_train is not None and X_test is not None:
                 <div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');">
                 </div>
             """, unsafe_allow_html=True)
-
-
-
+            
         st.markdown("""
         ### Challenge Overview:
         - Classify products in Rakuten's e-commerce catalog using text and images.
