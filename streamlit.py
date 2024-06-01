@@ -9,6 +9,11 @@ import os
 import nltk
 from nltk.tokenize import word_tokenize
 
+# Download necessary NLTK data
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+
+
 nltk.download('punkt')
 
 # Function to convert image to base64 for HTML embedding
