@@ -114,15 +114,15 @@ elif selected_menu == "Problem":
 
 # Placeholder for other sections
 if selected_menu == "Data":
-    st.title("Data Visualizations")
+
     options = ["Target Variable", "Duplicates", "Image Issues", "Word Cloud"]
     choice = st.selectbox("Choose Visualization", options)
 
     if choice == "Target Variable":
-        st.subheader("Target Variable: y_train_balanced")
+        st.subheader("Target Variable ")
         try:
             image = Image.open("y_train_balanced.jpg")
-            st.image(image, caption="Distribution of y_train_balanced")
+            st.image(image, caption="Frequency Distribution of target variable")
         except FileNotFoundError:
             st.error("File not found: y_train_balanced.jpg")
 
@@ -143,12 +143,12 @@ if selected_menu == "Data":
         st.subheader("Image Issues")
         try:
             image1 = Image.open("Images_issues1.jpg")
-            image2 = Image.open("Images_issues2.jpg")
+            image2 = Image.open("Images_issues2.png")
             col1, col2 = st.columns(2)
             with col1:
-                st.image(image1, caption="Image Issues 1")
+                st.image(image1)
             with col2:
-                st.image(image2, caption="Image Issues 2")
+                st.image(image2)
         except FileNotFoundError as e:
             st.error(f"File not found: {e}")
 
