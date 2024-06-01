@@ -35,6 +35,22 @@ st.markdown("""
             font-weight: bold;
             margin-top: 20px;
         }
+        .header-container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .header-container img {
+            width: 100%;
+            height: auto;
+        }
+        .header-container .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -83,13 +99,21 @@ if X_train is not None and Y_train is not None and X_test is not None:
 
         st.header("Team")
         # Display the image
-        team_image = Image.open("Rakuten_team.png")  
+        team_image = Image.open("Rakuten_team.png")
         st.image(team_image, caption="Rakuten Project Team")
 
     # Problem context
     if selected_menu == "Problem":
+        # Display the header image
+        st.markdown("""
+            <div class="header-container">
+                <img src="Rakuten_challenge.jpg" alt="Rakuten Challenge">
+                <div class="text">
+                    <h1>Rakuten Classification Challenge</h1>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
 
-        st.header("Rakuten Classification Challenge")
         st.markdown("""
         ### Challenge Overview:
         - Classify products in Rakuten's e-commerce catalog using text and images.
