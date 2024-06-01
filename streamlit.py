@@ -8,6 +8,23 @@ import base64
 import os
 import nltk
 from nltk.tokenize import word_tokenize
+import subprocess
+import sys
+
+# Now try importing NLTK
+try:
+    import nltk
+    nltk.download('punkt')
+    nltk.download('stopwords')
+    st.write('NLTK is successfully installed and data downloaded!')
+except ImportError as e:
+    st.error(f"Failed to import NLTK: {e}")
+
+
+# List installed packages to debug installation issues
+installed_packages = subprocess.run([sys.executable, "-m", "pip", "list"], capture_output=True, text=True)
+st.text(installed_packages.stdout)
+
 
 # Download necessary NLTK data
 nltk.download('punkt', quiet=True)
