@@ -101,15 +101,17 @@ elif selected_menu == "Problem":
         st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');"></div>""", unsafe_allow_html=True)
     
     st.markdown("""
-        
-        ### Challenge Overview:
-        - Classify products in Rakuten's e-commerce catalog using text and images.
-        - Multimodal classification problem; improves product categorization.
-        ### Data Source:
-        - Rakuten France Multimodal Product Data Classification Challenge.  [Download Link](https://challengedata.ens.fr/challenges/35)
-        ### Validation:
-        - Competition site for validation and ranking. [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
-    """)
+    <br>
+    <div style='margin-top: 20px;'></div>
+    ### Challenge Overview:
+    - Classify products in Rakuten's e-commerce catalog using text and images.
+    - Multimodal classification problem; improves product categorization.
+    ### Data Source:
+    - Rakuten France Multimodal Product Data Classification Challenge. [Download Link](https://challengedata.ens.fr/challenges/35)
+    ### Validation:
+    - Competition site for validation and ranking. [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
+""", unsafe_allow_html=True)
+
 
 
 # Placeholder for other sections
