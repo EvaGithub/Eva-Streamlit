@@ -8,8 +8,12 @@ import os
 
 # Function to get base64 of an image
 def get_base64_image(image_path):
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode()
+    try:
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    except FileNotFoundError:
+        st.error(f"File not found: {image_path}")
+        return None
 
 # Define custom CSS for light business blue tone and white tone
 st.markdown("""
@@ -102,14 +106,15 @@ if X_train is not None and Y_train is not None and X_test is not None:
     # Problem context
     if selected_menu == "Problem":
         # Convert image to base64 string
-        image_path = "Screenshot 2024-06-01 at 11.42.34.png"
+        image_path = "Rakuten_challenge.jpg"
         base64_image = get_base64_image(image_path)
 
-        # Display the header image
-        st.markdown(f"""
-            <div class="header-container" style="background-image: url('data:image/png;base64,{base64_image}');">
-            </div>
-        """, unsafe_allow_html=True)
+        if base64_image:
+            # Display the header image
+            st.markdown(f"""
+                <div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');">
+                </div>
+            """, unsafe_allow_html=True)
 
         st.markdown("""
         ### Challenge Overview:
@@ -141,4 +146,5 @@ if selected_menu == "Results":
 if selected_menu == "Future work":
     st.title("Future work")
     st.markdown("Details about the future work go here.")
+
 
