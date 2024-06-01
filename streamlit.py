@@ -101,6 +101,7 @@ elif selected_menu == "Problem":
         st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');"></div>""", unsafe_allow_html=True)
     
     st.markdown("""
+        
         ### Challenge Overview:
         - Classify products in Rakuten's e-commerce catalog using text and images.
         - Multimodal classification problem; improves product categorization.
