@@ -1,3 +1,6 @@
+Sure! Here is the updated code with "Participants" removed from the sidebar, and "Data Science Bootcamp March 2024" added to the header before the menu.
+
+```python
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -38,7 +41,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar menu
+# Sidebar header and menu
+st.sidebar.title("Data Science Bootcamp March 2024")
 st.sidebar.title("Menu")
 menu_items = ["Team", "Problem", "Data", "Models", "Results", "Future work"]
 selected_menu = st.sidebar.radio("", menu_items, index=0, key="menu")
@@ -126,21 +130,4 @@ if selected_menu == "Results":
 if selected_menu == "Future work":
     st.title("Future work")
     st.markdown("Details about the future work go here.")
-
-# Project team in the sidebar
-st.sidebar.markdown("**Data Science Project**")
-st.sidebar.markdown("**Bootcamp March 2024**")
-st.sidebar.markdown('<p class="participants-title">Participants</p>', unsafe_allow_html=True)
-
-team_members = [
-    {"name": "João Pedro Kerr Catunda", "linkedin": None},
-    {"name": "Mani Chandan Naru", "linkedin": "https://www.linkedin.com/in/mani-cn/"},
-    {"name": "Eva Losada Barreiro", "linkedin": "https://www.linkedin.com/in/evalosadabarreiro/?locale=de_DE"}
-]
-
-for member in team_members:
-    st.sidebar.markdown(f"**{member['name']}**")
-    if member['linkedin']:
-        st.sidebar.markdown(f"[LinkedIn]({member['linkedin']})")
-
-          
+```
