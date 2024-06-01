@@ -115,11 +115,6 @@ elif selected_menu == "Problem":
 # Placeholder for other sections
 if selected_menu == "Data":
 
-import streamlit as st
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 # Directly declare the mapping of product type codes to category names
 category_mapping = {
     10: "Used Books",
