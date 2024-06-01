@@ -48,9 +48,9 @@ st.markdown("""
         .header-container {
             position: relative;
             width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
+            height: 250px; /* Adjusted height */
+            background-size: contain; /* Changed from 'cover' to 'contain' */
+            background-position: top center; /* Adjusted to show the top part of the image */
         }
     </style>
 """, unsafe_allow_html=True)
@@ -78,7 +78,7 @@ def load_data():
 def load_images(image_folder, num_images=5):
     images = []
     for folder in ['image_train', 'image_test']:
-        folder_path = os.path.join(image_folder, folder)
+        folder_path is os.path.join(image_folder, folder)
         images.extend([os.path.join(folder_path, img) for img in os.listdir(folder_path)[:num_images]])
     return images
 
@@ -106,7 +106,7 @@ if X_train is not None and Y_train is not None and X_test is not None:
     # Problem context
     if selected_menu == "Problem":
         # Convert image to base64 string
-        image_path = "Rakuten_challenge2.jpg"
+        image_path = "Rakuten_challenge.jpg"
         base64_image = get_base64_image(image_path)
 
         if base64_image:
@@ -115,6 +115,8 @@ if X_train is not None and Y_train is not None and X_test is not None:
                 <div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');">
                 </div>
             """, unsafe_allow_html=True)
+
+
 
         st.markdown("""
         ### Challenge Overview:
