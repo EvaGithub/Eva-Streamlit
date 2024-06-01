@@ -130,25 +130,15 @@ if selected_menu == "Data":
         st.subheader("Text and Image Duplicates")
         try:
             image1 = Image.open("Text_duplicates.jpg")
-            image2 = Image.open("Image_duplicates.jpg")
-            col1, col2 = st.columns(2)
-            with col1:
-                st.image(image1, caption="Text Duplicates")
-            with col2:
-                st.image(image2, caption="Image Duplicates")
+            st.image(image1, caption="Text Duplicates")
         except FileNotFoundError as e:
             st.error(f"File not found: {e}")
 
     elif choice == "Image Issues":
         st.subheader("Image Issues")
         try:
-            image1 = Image.open("Images_issues1.jpg")
-            image2 = Image.open("Images_issues2.png")
-            col1, col2 = st.columns(2)
-            with col1:
-                st.image(image1)
-            with col2:
-                st.image(image2)
+            image2 = Image.open("Image_issues2.png")
+            st.image(image2)
         except FileNotFoundError as e:
             st.error(f"File not found: {e}")
 
