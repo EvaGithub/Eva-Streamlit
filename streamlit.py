@@ -106,9 +106,9 @@ elif selected_menu == "Problem":
         - Classify products in Rakuten's e-commerce catalog using text and images.
         - Multimodal classification problem; improves product categorization.
         ### Data Source:
-        - Rakuten France Multimodal Product Data Classification Challenge.  [Download Link](https://challengedata.ens.fr/challenges/35)
+        - Rakuten France Multimodal Product Data Classification Challenge.  
         ### Validation:
-        - Competition site for validation and ranking. [Validation Link](https://challengedata.ens.fr/participants/challenges/35/ranking/public)
+        - Competition site for validation and ranking. 
     """)
 
 
