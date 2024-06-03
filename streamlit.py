@@ -253,7 +253,13 @@ if page == "Models":
         plt.ylabel('True Label')
         st.pyplot(plt)  # Display as a heatmap
 
-
+    	# Test set results subsection
+   	 st.header("Test set results")
+    	st.markdown("""
+   	 - Our model outperformed the benchmark, securing rank 2 on the public leaderboard.
+   	 - This confirms that our validation dataset accurately represents the real dataset.
+   	 - It also demonstrates that our model is well-generalized and not overfitted.
+    	""")
 
 if page == "Models live demo":
     st.title("Models live demo")
@@ -283,16 +289,7 @@ if page == "Models live demo":
     if st.checkbox("Show Confusion matrix"):
         st.dataframe(scores(clf, display))
 
-if page == "Results":
-    st.title("Results")
 
-    # Test set results subsection
-    st.header("Test set results")
-    st.markdown("""
-    - Our model outperformed the benchmark, securing rank 2 on the public leaderboard.
-    - This confirms that our validation dataset accurately represents the real dataset.
-    - It also demonstrates that our model is well-generalized and not overfitted.
-    """)
     
     if st.checkbox('Show Test Set Results Table'):
         test_results_path = "06 - Results/test-resuls-benchmark.csv"
