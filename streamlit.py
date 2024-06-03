@@ -92,7 +92,7 @@ pages = ["Problem",
          "Data",
          "Data Analysis",
          "Methods & Results",
-         "Models & live demo",
+         "Models & Live Demo",
          "Future work",
          "Team"]
 
@@ -277,7 +277,7 @@ if page == "Methods & Results":
     - It also demonstrates that our model is well-generalized and not overfitted.
     """)
 
-if page == "Models & live demo":
+if page == "Models & Live Demo":
     st.title("Models")
     model = st.selectbox('Chosen model', models)
 
