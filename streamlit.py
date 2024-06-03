@@ -88,7 +88,28 @@ team_image = streamlit_data_folder + "01 - Team/Rakuten_team.png"
 
 st.sidebar.title("Data Science Bootcamp March 2024")
 
-pages = ["Problem", "Data", "Data Analysis", "Models", "Methods & Results", "Models live demo",  "Future work", "Team"]
+pages = ["Problem",
+         "Data",
+         "Data Analysis",
+         "Models",
+         "Methods & Results",
+         "Models live demo",
+         "Future work",
+         "Team"]
+
+models = ["Word Bagging + Gradient Boosting",
+          "Word Bagging + Decision Tree",
+          "Custom CNN",
+          "Voting Classifier (Word Bagging + Gradient, Word Bagging + Tree, Custom CNN",
+          "Google 1",
+          "Google 2",
+          "Google 3",
+          "Google 4",
+          "Bert",
+          "CamemBERT",
+          "Multi-Model Concatenate",
+          "Multi-Model Score"]
+
 
 page = st.sidebar.radio("Table of contents", pages, index=0)
 
@@ -202,16 +223,6 @@ if page == "Data Analysis":
 
 if page == "Models":
     st.title("Models")
-    models = ["Word Bagging + Gradient",
-              "Word Bagging + Decision Tree",
-              "Custom CNN",
-              "Voting Classifier(Word Bagging + Gradient, Word Bagging + Tree, Custom CNN",
-              "Google 1",
-              "Google 2",
-              "Bert",
-              "CamemBERT",
-              "MultiModel"]
-
     model = st.selectbox('Chosen model', models)
 
     st.text_area(model,
@@ -227,14 +238,9 @@ if page == "Models":
         st.pyplot(fig)
 
     if st.checkbox("Show Accuracy"):
-        st.write(scores(clf, display))
+        df_accuracy = pd.read_csv("06 - Results/Accuracy/" + model + ".csv", index_col="category")
+        st.dataframe(df_accuracy)
 
-        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/" + model + ".csv", index_col="class")
-        fig, ax = plt.subplots(figsize=(12, 12))
-        plt.title(model + ": Confusion Matrix HeatMap")
-        # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
-        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.0f")
-        st.pyplot(fig)
 
     if st.checkbox('Show Test Set Results Table'):
         test_results_path = "06 - Results/test-resuls-benchmark.csv"
@@ -316,18 +322,6 @@ if page == "Models live demo":
     st.text_area("Item description", )
     st.text_area("Item image", )
     st.write(f"Detected class:", {42})
-
-    models = ["Word Bagging + Gradient",
-              "Word Bagging + Tree",
-              "Custom CNN",
-              "Voting Classifier(Word Bagging + Gradient, Word Bagging + Tree, Custom CNN",
-              "Google 1",
-              "Google 2",
-              "Google 3",
-              "Google 4",
-              "Bert",
-              "CamemBERT",
-              "MultiModel"]
 
     model = st.selectbox('Chosen model', models)
 
