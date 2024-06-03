@@ -6,12 +6,12 @@ from matplotlib.ticker import FormatStrFormatter, StrMethodFormatter
 import seaborn as sns
 import streamlit as st
 
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix
+#from sklearn.model_selection import train_test_split
+#from sklearn.ensemble import RandomForestClassifier
+#from sklearn.preprocessing import StandardScaler
+#from sklearn.svm import SVC
+#from sklearn.linear_model import LogisticRegression
+#from sklearn.metrics import confusion_matrix
 
 sns.palplot("pastel")
 sns.set_style("darkgrid")
