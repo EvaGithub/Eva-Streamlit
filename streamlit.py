@@ -57,7 +57,7 @@ def scores(clf, choice):
 streamlit_data_folder = ""
 
 # st.title("Data Science Bootcamp March 2024")
-df_repeated_images = pd.read_csv(image_samples_folder + "03 - Data/Repeated Images Report.csv", index_col="category")
+df_repeated_images = pd.read_csv(streamlit_data_folder + "03 - Data/Repeated Images Report.csv", index_col="category")
 
 
 df_repeated_images.drop(["unique_repeated"], axis=1, inplace=True)
