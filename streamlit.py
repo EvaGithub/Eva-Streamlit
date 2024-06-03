@@ -219,12 +219,24 @@ if page == "Models":
                  disabled=True, height=150)
 
     if st.checkbox("Show Confusion Matrix HeatMap"):
-        df_heatmap = pd.read_csv("03 - Data/Confusion Matrices/" + model + ".csv")
+        df_heatmap = pd.read_csv("03 - Data/Confusion Matrices/" + model + ".csv", index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title(model + ": Confusion Matrix HeatMap")
         # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
-        sns.heatmap(df_heatmap, annot=True, cmap="Purples", fmt="1.0f")
+        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.0f")
         st.pyplot(fig)
+
+    if st.checkbox("Show Accuracy"):
+        st.write(scores(clf, display))
+
+    if st.checkbox('Show Test Set Results Table'):
+        test_results_path = "06 - Results/test-resuls-benchmark.csv"
+        try:
+            test_results_df = pd.read_csv(test_results_path)
+            st.dataframe(test_results_df)
+        except Exception as e:
+            st.error(f"Failed to load the data: {e}")
+
 
 if page == "Methods & Results":
     st.title("Methods & Results")
@@ -268,16 +280,14 @@ if page == "Methods & Results":
     - Role Playing Games (1180), Board Games (1281), and Children's Toys (1280) are frequently misclassified.
     - The model often confuses semantically similar classes.
     """)
+
     if st.checkbox('Show Confusion Matrix'):
-        confusion_matrix_csv = "06 - Results/confusion_matrix_model_pred_score.csv"
-        confusion_matrix_df = pd.read_csv(confusion_matrix_csv, index_col=0)
-        st.dataframe(confusion_matrix_df)  # Display as a dataframe
-        plt.figure(figsize=(10, 8))
-        sns.heatmap(confusion_matrix_df, annot=True, fmt="d", cmap='viridis')
-        plt.title('Normalized Confusion Matrix')
-        plt.xlabel('Predicted Label')
-        plt.ylabel('True Label')
-        st.pyplot(plt)  # Display as a heatmap
+        df_heatmap = pd.read_csv("03 - Data/Confusion Matrices/MultiModel.csv", index_col="class")
+        fig, ax = plt.subplots(figsize=(12, 12))
+        plt.title("MultiModel: Normalized Confusion Matrix HeatMap")
+        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Blues", fmt="0.2f")
+        st.pyplot(fig)
+
 
     # Test set results subsection
     st.header("Test set results")
@@ -309,19 +319,6 @@ if page == "Models live demo":
 
     st.write('The chosen model is :', model)
     #        clf = prediction(model)
-
-    if st.checkbox("Show Accuracy"):
-        st.write(scores(clf, display))
-    if st.checkbox("Show Confusion matrix"):
-        st.dataframe(scores(clf, display))
-
-    if st.checkbox('Show Test Set Results Table'):
-        test_results_path = "06 - Results/test-resuls-benchmark.csv"
-        try:
-            test_results_df = pd.read_csv(test_results_path)
-            st.dataframe(test_results_df)
-        except Exception as e:
-            st.error(f"Failed to load the data: {e}")
 
 if page == "Future work":
     st.title("Future work")

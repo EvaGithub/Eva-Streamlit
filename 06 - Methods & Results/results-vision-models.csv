@@ -1,0 +1,3 @@
+Model,Precision,Recall,F1-score
+VIT-base-patch16-224,0.69,0.68,0.69
+VIT-base-patch16-224-in21k,0.67,0.67,0.68

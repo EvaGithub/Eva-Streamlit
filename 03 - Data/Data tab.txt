@@ -9,11 +9,4 @@ What are we looking at
 	3: Classes
 		There are 27 classes spanning a wide variety of items, from books to Gardening tools.
 
-	4: Brief Data Analysis
-		Unbalanced
-		Missing textual data
-		Repeated textual data
-		Repeated images (same class)
-		Placeholder images (repeats across classes)
-		Data Cleaning Actions
 

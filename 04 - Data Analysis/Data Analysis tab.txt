@@ -1,0 +1,8 @@
+Brief Data Analysis
+	Unbalanced
+	Missing textual data
+	Repeated textual data
+	Repeated images (same class)
+	Placeholder images (repeats across classes)
+	Word Frequecy analysis
+	Data Cleaning Actions
