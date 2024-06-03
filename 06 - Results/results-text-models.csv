@@ -1,0 +1,5 @@
+Model,Precision,Recall,F1-score
+Word bagging with decision trees,0.73,0.71,0.72
+Word bagging with gradient boosting,0.59,0.36,0.41
+Camembert-base,0.87,0.87,0.87
+XLM-Roberta-base,0.85,0.85,0.85
