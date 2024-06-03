@@ -203,13 +203,11 @@ if page == "Data Analysis":
 if page == "Models":
     st.title("Models")
     models = ["Word Bagging + Gradient",
-              "Word Bagging + Tree",
+              "Word Bagging + Decision Tree",
               "Custom CNN",
               "Voting Classifier(Word Bagging + Gradient, Word Bagging + Tree, Custom CNN",
               "Google 1",
               "Google 2",
-              "Google 3",
-              "Google 4",
               "Bert",
               "CamemBERT",
               "MultiModel"]
@@ -217,12 +215,13 @@ if page == "Models":
     model = st.selectbox('Chosen model', models)
 
     st.text_area(model,
-                 "Model Description. Must have static size so that it remais formatted quen changing models",
+                 "Model Description. Must have static size so that it remains formatted when changing models",
                  disabled=True, height=150)
 
     if st.checkbox("Show Confusion Matrix HeatMap"):
         df_heatmap = pd.read_csv("03 - Data/Confusion Matrices/" + model + ".csv")
         fig, ax = plt.subplots(figsize=(12, 12))
+        plt.title(model + ": Confusion Matrix HeatMap")
         # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
         sns.heatmap(df_heatmap, annot=True, cmap="Purples", fmt="1.0f")
         st.pyplot(fig)
