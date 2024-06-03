@@ -96,67 +96,39 @@ if selected_menu == "Team":
 elif selected_menu == "Problem":
     # Displaying the banner image
     image_path = "Rakuten_challenge3.jpg"
-    base64_image = get_base64_image(image_path)
-    if base64_image:
-        st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}'); height: 250px;"></div>""", unsafe_allow_html=True)
+    if os.path.exists(image_path):
+        st.image(image_path, caption="Rakuten France Multimodal Product Classification Challenge", use_column_width=True)
 
-    # Adding custom styles for logo positioning and size
+    # Display Challenge Provider and Link
     st.markdown("""
-    <style>
-        .logo {
-            width: 100px;  /* Control the size of the logo */
-            float: right;  /* Align the logo to the right */
-            margin-left: 10px; /* Space between the text and the logo */
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    </style>
+    <h2 style='color: #4a90e2;'>Where to find it:</h2>
+    <p><b>Challenge Provider:</b> <a href="https://challengedata.ens.fr/" target="_blank">Rakuten Institute of Technology, Paris</a></p>
+    <p><b>Challenge Link:</b> <a href="https://challengedata.ens.fr/challenges/35" target="_blank">Challenge Details</a></p>
     """, unsafe_allow_html=True)
 
-    # Context with RIT logo
+    # Display logos for visual engagement
+    st.image("Problem_02_RIT_logo_big.jpg", caption="Rakuten Institute of Technology", width=100)
+
+    # The Goal
     st.markdown("""
-    <div class="header">
-        <h2 style='color: #343a40;'>Context</h2>
-        <img src="Problem_02_RIT_logo_big.jpg" class="logo" alt="Rakuten Institute of Technology Logo">
-    </div>
-    <p>The Rakuten Institute of Technology (RIT), Paris, is focusing on the large-scale, multimodal classification of products 
-    into predefined type codes using both text and images. This classification aids in improving search and recommendation systems 
-    on Rakuten's e-commerce platforms, where the vast range of products poses significant challenges for standard categorization techniques.</p>
+    <h2 style='color: #4a90e2;'>The Goal:</h2>
+    <p>Our objective is to develop a system that uses both image and textual data to classify each product into one of the predefined classes 
+    within the Rakuten France catalog. This enhances the precision of search and recommendation functions, improving the user experience on the platform.</p>
     """, unsafe_allow_html=True)
 
-    # Problem Description with Challenge Data logo
+    # The Metric
     st.markdown("""
-    <div class="header">
-        <h2 style='color: #343a40;'>Problematic</h2>
-        <img src="Problem_01_Challange_Data_Logo.png" class="logo" alt="Challenge Data Logo">
-    </div>
-    <p>The challenge involves predicting each product's type code based on multimodal data (text and images) from the Rakuten France catalog. 
-    The use of advanced machine learning techniques to handle noisy, large-scale data sets from e-commerce platforms is central to this challenge.</p>
+    <h2 style='color: #4a90e2;'>The Metric:</h2>
+    <p>The effectiveness of proposed solutions is measured by the <b>weighted-F1 score</b>, a metric that considers both the precision and recall 
+    of the classification model, crucial for handling the inherent data imbalance in product categories.</p>
+    <p>More details on the metric can be found at <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html" target="_blank">Scikit-Learn F1 Score Documentation</a>.</p>
     """, unsafe_allow_html=True)
 
-    # Aim
+    # The Data
     st.markdown("""
-    <h2 style='color: #343a40;'>Aim</h2>
-    <p>The main objective is to develop a classifier that can automatically categorize each product into the correct product type code, 
-    significantly reducing the reliance on manual categorization and improving the efficiency of the e-commerce platform's backend processes.</p>
-    """, unsafe_allow_html=True)
-
-    # Metric
-    st.markdown("""
-    <h2 style='color: #343a40;'>The Metric</h2>
-    <p>Submissions will be evaluated based on the <strong>weighted-F1 score</strong>, which considers both precision and recall, 
-    particularly important in unbalanced datasets typically found in commercial product catalogs.</p>
-    """, unsafe_allow_html=True)
-
-    # Data
-    st.markdown("""
-    <h2 style='color: #343a40;'>Data</h2>
-    <p>Data is provided for registered participants and includes images and text descriptions of products listed on Rakuten France's e-commerce site. 
-    This challenge presents a unique set of data, rich in diversity but also complexity due to the noisy and often incomplete information provided by sellers.</p>
-    <a href="https://challengedata.ens.fr/challenges/35" target="_blank">Access the dataset and challenge details here.</a>
+    <h2 style='color: #4a90e2;'>The Data:</h2>
+    <p>Data necessary for the challenge is exclusively available to registered participants. It includes detailed images and textual descriptions 
+    of a wide array of products listed on Rakuten France. This dataset is pivotal for training and testing the classification models.</p>
     """, unsafe_allow_html=True)
 
 
