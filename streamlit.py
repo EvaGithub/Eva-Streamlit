@@ -91,9 +91,8 @@ st.sidebar.title("Data Science Bootcamp March 2024")
 pages = ["Problem",
          "Data",
          "Data Analysis",
-         "Models",
          "Methods & Results",
-         "Models live demo",
+         "Models & live demo",
          "Future work",
          "Team"]
 
@@ -220,44 +219,6 @@ if page == "Data Analysis":
     # 	Placeholder images (repeats across classes)\
     # 	Data Cleaning Actions')
 
-
-if page == "Models":
-    st.title("Models")
-    model = st.selectbox('Chosen model', models)
-
-    st.text_area(model,
-                 "Model Description. Must have static size so that it remains formatted when changing models",
-                 disabled=True, height=150)
-
-    if st.checkbox("Show Confusion Matrix HeatMap"):
-        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/" + model + ".csv", index_col="class")
-        fig, ax = plt.subplots(figsize=(12, 12))
-        plt.title(model + ": Confusion Matrix HeatMap")
-        # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
-        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.0f")
-        st.pyplot(fig)
-
-    if st.checkbox("Show Accuracy"):
-        df_accuracy = pd.read_csv("06 - Results/Accuracy/" + model + ".csv", index_col="category")
-        st.dataframe(df_accuracy)
-
-
-    if st.checkbox('Show Test Set Results Table'):
-        test_results_path = "06 - Results/test-resuls-benchmark.csv"
-        try:
-            test_results_df = pd.read_csv(test_results_path)
-            st.dataframe(test_results_df)
-        except Exception as e:
-            st.error(f"Failed to load the data: {e}")
-
-        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/" + model + ".csv", index_col="class")
-        fig, ax = plt.subplots(figsize=(12, 12))
-        plt.title(model + ": Confusion Matrix HeatMap")
-        # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
-        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.0f")
-        st.pyplot(fig)
-
-
 if page == "Methods & Results":
     st.title("Methods & Results")
     # Multimodal classification problem: two approaches
@@ -317,16 +278,44 @@ if page == "Methods & Results":
     - It also demonstrates that our model is well-generalized and not overfitted.
     """)
 
-if page == "Models live demo":
-    st.title("Models live demo")
-    st.text_area("Item description", )
-    st.text_area("Item image", )
-    st.write(f"Detected class:", {42})
-
+if page == "Models & live demo":
+    st.title("Models")
     model = st.selectbox('Chosen model', models)
 
-    st.write('The chosen model is :', model)
-    #        clf = prediction(model)
+    st.text_area(model,
+                 "Model Description. Must have static size so that it remains formatted when changing models",
+                 disabled=True, height=150)
+
+    if st.checkbox("Show Confusion Matrix HeatMap"):
+        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/" + model + ".csv", index_col="class")
+        fig, ax = plt.subplots(figsize=(12, 12))
+        plt.title(model + ": Confusion Matrix HeatMap")
+        # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
+        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.2f")
+        st.pyplot(fig)
+
+    if st.checkbox("Show Accuracy"):
+        df_accuracy = pd.read_csv("06 - Results/Accuracy/" + model + ".csv", index_col="category")
+        st.dataframe(df_accuracy)
+
+
+    if st.checkbox('Show Test Set Results Table'):
+        test_results_path = "06 - Results/test-resuls-benchmark.csv"
+        test_results_df = pd.read_csv(test_results_path)
+        st.dataframe(test_results_df)
+
+
+    st.header("Live Demo:")
+    st.subheader(model)
+    st.text_area("Item description", )
+    st.text_area("Item image", )
+    # clf = prediction(model)
+    # predicted = clf.predict(text, image)
+    predicted = 1301
+    st.write(f"Detected class:", df_classes[df_classes["Prdtypecode"] == predicted])
+
+
+
 
 if page == "Future work":
     st.title("Future work")
