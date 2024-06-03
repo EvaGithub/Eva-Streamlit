@@ -95,7 +95,7 @@ if selected_menu == "Team":
 
 elif selected_menu == "Problem":
     # Displaying the banner image
-    image_path = "Rakuten_challenge3.jpg"
+    image_path = "Rakuten_challenge4.jpg"
     if os.path.exists(image_path):
         st.image(image_path, caption="Rakuten France Multimodal Product Classification Challenge", use_column_width=True)
 
@@ -130,6 +130,7 @@ elif selected_menu == "Problem":
     <p>Data necessary for the challenge is exclusively available to registered participants. It includes detailed images and textual descriptions 
     of a wide array of products listed on Rakuten France. This dataset is pivotal for training and testing the classification models.</p>
     """, unsafe_allow_html=True)
+
 
 
 
