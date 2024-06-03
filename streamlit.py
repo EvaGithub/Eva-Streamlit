@@ -101,24 +101,21 @@ elif selected_menu == "Problem":
 
     # Display Challenge Provider and Link
     st.markdown("""
-    <h2 style='color: #4a90e2;'>Where to find it:</h2>
+    <h2 style='color: #003366;'>Where to find it:</h2>
     <p><b>Challenge Provider:</b> <a href="https://challengedata.ens.fr/" target="_blank">Rakuten Institute of Technology, Paris</a></p>
     <p><b>Challenge Link:</b> <a href="https://challengedata.ens.fr/challenges/35" target="_blank">Challenge Details</a></p>
     """, unsafe_allow_html=True)
 
-    # Display logos for visual engagement
-    st.image("Problem_02_RIT_logo_big.jpg", caption="Rakuten Institute of Technology", width=100)
-
     # The Goal
     st.markdown("""
-    <h2 style='color: #4a90e2;'>The Goal:</h2>
+    <h2 style='color: #003366;'>The Goal:</h2>
     <p>Our objective is to develop a system that uses both image and textual data to classify each product into one of the predefined classes 
     within the Rakuten France catalog. This enhances the precision of search and recommendation functions, improving the user experience on the platform.</p>
     """, unsafe_allow_html=True)
 
     # The Metric
     st.markdown("""
-    <h2 style='color: #4a90e2;'>The Metric:</h2>
+    <h2 style='color: #003366;'>The Metric:</h2>
     <p>The effectiveness of proposed solutions is measured by the <b>weighted-F1 score</b>, a metric that considers both the precision and recall 
     of the classification model, crucial for handling the inherent data imbalance in product categories.</p>
     <p>More details on the metric can be found at <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html" target="_blank">Scikit-Learn F1 Score Documentation</a>.</p>
@@ -126,11 +123,18 @@ elif selected_menu == "Problem":
 
     # The Data
     st.markdown("""
-    <h2 style='color: #4a90e2;'>The Data:</h2>
+    <h2 style='color: #003366;'>The Data:</h2>
     <p>Data necessary for the challenge is exclusively available to registered participants. It includes detailed images and textual descriptions 
     of a wide array of products listed on Rakuten France. This dataset is pivotal for training and testing the classification models.</p>
     """, unsafe_allow_html=True)
 
+
+    # The Data
+    st.markdown("""
+    <h2 style='color: #4a90e2;'>The Data:</h2>
+    <p>Data necessary for the challenge is exclusively available to registered participants. It includes detailed images and textual descriptions 
+    of a wide array of products listed on Rakuten France. This dataset is pivotal for training and testing the classification models.</p>
+    """, unsafe_allow_html=True)
 
 
 
