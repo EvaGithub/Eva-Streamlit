@@ -90,7 +90,7 @@ image_word_cloud = streamlit_data_folder + "03 - Data/square_wordcloud.jpg"
 team_image = streamlit_data_folder + "01 - Team/Rakuten_team.png"
 
 st.sidebar.title("Data Science Bootcamp March 2024")
-pages = ["Problem", "Data", "Data Analysis", "Models", "Models live demo", "Results", "Future work", "Team"]
+pages = ["Problem", "Data", "Data Analysis", "Models & Results", "Models live demo",  "Future work", "Team"]
 page = st.sidebar.radio("Table of contents", pages, index=0)
 
 if page == "Team":
