@@ -295,7 +295,7 @@ if page == "Results":
     """)
     
     if st.checkbox('Show Test Set Results Table'):
-        test_results_path = "06 - Results/test-results-benchmark.csv"
+        test_results_path = "06 - Results/test-resuls-benchmark.csv"
         try:
             test_results_df = pd.read_csv(test_results_path)
             st.dataframe(test_results_df)
