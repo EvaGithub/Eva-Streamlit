@@ -99,13 +99,12 @@ pages = ["Problem",
 models = ["Word Bagging + Gradient Boosting",
           "Word Bagging + Decision Tree",
           "Custom CNN",
-          "Voting Classifier (Word Bagging + Gradient, Word Bagging + Tree, Custom CNN",
-          "Google 1",
-          "Google 2",
-          "Google 3",
-          "Google 4",
+          "Voting Classifier (Word Bagging + Gradient, Word Bagging + Tree, Custom CNN)",
+          "Google VIT-base-patch16-224",
+          "Google VIT-base-patch16-224-in21k",
           "Bert",
           "CamemBERT",
+          "XLM-Roberta-base",
           "Multi-Model Concatenate",
           "Multi-Model Score"]
 
@@ -263,7 +262,7 @@ if page == "Methods & Results":
     """)
 
     if st.checkbox('Show Confusion Matrix'):
-        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/MultiModel.csv", index_col="class")
+        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/Multi-Model Score.csv", index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title("MultiModel: Normalized Confusion Matrix HeatMap")
         sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Blues", fmt="0.2f")
