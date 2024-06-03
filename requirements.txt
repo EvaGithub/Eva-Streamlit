@@ -5,5 +5,5 @@ streamlit
 nltk
 numpy
 matplotlib
-sklearn
+scikit-learn
 
