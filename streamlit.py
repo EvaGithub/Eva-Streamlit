@@ -63,7 +63,7 @@ df_repeated_images = pd.read_csv(streamlit_data_folder + "03 - Data/Repeated Ima
 df_repeated_images.drop(["unique_repeated"], axis=1, inplace=True)
 df_repeated_images.drop(["test"], axis=0, inplace=True)
 
-df_classes = pd.read_csv("../DataBase/Rakuten/categories.csv")
+df_classes = pd.read_csv(streamlit_data_folder + "03 - Data/categories.csv")
 df_classes = df_classes.astype({"Prdtypecode": object})
 
 df_repeated_text = df_repeated_images
