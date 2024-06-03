@@ -219,7 +219,7 @@ if page == "Models":
                  disabled=True, height=150)
 
     if st.checkbox("Show Confusion Matrix HeatMap"):
-        df_heatmap = pd.read_csv("03 - Data/Confusion Matrices/" + model + ".csv", index_col="class")
+        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/" + model + ".csv", index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title(model + ": Confusion Matrix HeatMap")
         # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
@@ -229,6 +229,13 @@ if page == "Models":
     if st.checkbox("Show Accuracy"):
         st.write(scores(clf, display))
 
+        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/" + model + ".csv", index_col="class")
+        fig, ax = plt.subplots(figsize=(12, 12))
+        plt.title(model + ": Confusion Matrix HeatMap")
+        # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
+        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.0f")
+        st.pyplot(fig)
+
     if st.checkbox('Show Test Set Results Table'):
         test_results_path = "06 - Results/test-resuls-benchmark.csv"
         try:
@@ -236,6 +243,13 @@ if page == "Models":
             st.dataframe(test_results_df)
         except Exception as e:
             st.error(f"Failed to load the data: {e}")
+
+        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/" + model + ".csv", index_col="class")
+        fig, ax = plt.subplots(figsize=(12, 12))
+        plt.title(model + ": Confusion Matrix HeatMap")
+        # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
+        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.0f")
+        st.pyplot(fig)
 
 
 if page == "Methods & Results":
@@ -282,7 +296,7 @@ if page == "Methods & Results":
     """)
 
     if st.checkbox('Show Confusion Matrix'):
-        df_heatmap = pd.read_csv("03 - Data/Confusion Matrices/MultiModel.csv", index_col="class")
+        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/MultiModel.csv", index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title("MultiModel: Normalized Confusion Matrix HeatMap")
         sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Blues", fmt="0.2f")
