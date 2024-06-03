@@ -253,13 +253,13 @@ if page == "Models":
         plt.ylabel('True Label')
         st.pyplot(plt)  # Display as a heatmap
 
-    	# Test set results subsection
-   	 st.header("Test set results")
-    	st.markdown("""
-   	 - Our model outperformed the benchmark, securing rank 2 on the public leaderboard.
-   	 - This confirms that our validation dataset accurately represents the real dataset.
-   	 - It also demonstrates that our model is well-generalized and not overfitted.
-    	""")
+    # Test set results subsection
+    st.header("Test set results")
+    st.markdown("""
+    - Our model outperformed the benchmark, securing rank 2 on the public leaderboard.
+    - This confirms that our validation dataset accurately represents the real dataset.
+    - It also demonstrates that our model is well-generalized and not overfitted.
+    """)
 
 if page == "Models live demo":
     st.title("Models live demo")
