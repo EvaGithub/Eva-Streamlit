@@ -1,0 +1,19 @@
+What are we looking at
+
+	1: Textual Data
+		Item description provided by seller. Has no standardization and is cluttered by links, hashtags an markup language.
+
+	2: Image Data
+		Item pictures provided by seller as 500x500 RGB images on white background.
+
+	3: Classes
+		There are 27 classes spanning a wide variety of items, from books to Gardening tools.
+
+	4: Brief Data Analysis
+		Unbalanced
+		Missing textual data
+		Repeated textual data
+		Repeated images (same class)
+		Placeholder images (repeats across classes)
+		Data Cleaning Actions
+

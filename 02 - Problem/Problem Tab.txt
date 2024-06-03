@@ -1,0 +1,23 @@
+The challenge:
+
+	1: Where to find it:
+		Challenge Provider:
+		https://challengedata.ens.fr/
+
+		Challenge Link:
+		https://challengedata.ens.fr/challenges/35
+
+	2: The Goal:
+		Given an image and a textual description, classify the item in one of the classes provided in the data.
+
+
+	3: The Metric:
+		This challenge rank participants by the weighted-F1 score metric.
+
+		Scikit-Learn F1 score implementation can be used as a reference with  average parameter set to "weighted".
+		https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html
+
+	4: The Data:
+		Data is provided for download for enrolled participants.
+	
+

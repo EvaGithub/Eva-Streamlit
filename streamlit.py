@@ -6,12 +6,12 @@ from matplotlib.ticker import FormatStrFormatter, StrMethodFormatter
 import seaborn as sns
 import streamlit as st
 
-#from sklearn.model_selection import train_test_split
-#from sklearn.ensemble import RandomForestClassifier
-#from sklearn.preprocessing import StandardScaler
-#from sklearn.svm import SVC
-#from sklearn.linear_model import LogisticRegression
-#from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
 
 sns.palplot("pastel")
 sns.set_style("darkgrid")
@@ -65,7 +65,8 @@ df_repeated_text = df_repeated_images
 
 df_word_frequency = df_repeated_images
 
-streamlit_data_folder = "../git/mar24_bds_int_rakuten/reports/Streamlit/"
+# streamlit_data_folder = "../git/mar24_bds_int_rakuten/reports/Streamlit/"
+streamlit_data_folder = ""
 
 image_samples_folder = streamlit_data_folder + "03 - Data/Image Samples/"
 image_samples = [image_samples_folder + "image_1186985707_product_3040901566.jpg",
