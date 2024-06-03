@@ -243,8 +243,16 @@ if page == "Models":
     - The model often confuses semantically similar classes.
     """)
     if st.button('Show Confusion Matrix'):
-        confusion_matrix_image = "06 - Results/confusion_matrix_model_pred_score.jpg"
-        st.image(confusion_matrix_image, caption="Normalized Confusion Matrix")
+        confusion_matrix_csv = "06 - Results/confusion_matrix_model_pred_score.csv"
+        confusion_matrix_df = pd.read_csv(confusion_matrix_csv, index_col=0)
+        st.dataframe(confusion_matrix_df)  # Display as a dataframe
+        plt.figure(figsize=(10, 8))
+        sns.heatmap(confusion_matrix_df, annot=True, fmt="d", cmap='viridis')
+        plt.title('Normalized Confusion Matrix')
+        plt.xlabel('Predicted Label')
+        plt.ylabel('True Label')
+        st.pyplot(plt)  # Display as a heatmap
+
 
 
 if page == "Models live demo":
