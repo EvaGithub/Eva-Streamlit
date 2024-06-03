@@ -53,8 +53,13 @@ def scores(clf, choice):
 
 
 
+# streamlit_data_folder = "../git/mar24_bds_int_rakuten/reports/Streamlit/"
+streamlit_data_folder = ""
+
 # st.title("Data Science Bootcamp March 2024")
-df_repeated_images = pd.read_csv("../DataBase/Rakuten/Repeated Images Report.csv", index_col="category")
+df_repeated_images = pd.read_csv(image_samples_folder + "03 - Data/Repeated Images Report.csv", index_col="category")
+
+
 df_repeated_images.drop(["unique_repeated"], axis=1, inplace=True)
 df_repeated_images.drop(["test"], axis=0, inplace=True)
 
@@ -65,8 +70,6 @@ df_repeated_text = df_repeated_images
 
 df_word_frequency = df_repeated_images
 
-# streamlit_data_folder = "../git/mar24_bds_int_rakuten/reports/Streamlit/"
-streamlit_data_folder = ""
 
 image_samples_folder = streamlit_data_folder + "03 - Data/Image Samples/"
 image_samples = [image_samples_folder + "image_1186985707_product_3040901566.jpg",
