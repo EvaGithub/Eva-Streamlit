@@ -17,7 +17,6 @@ def get_base64_image(image_path):
         return None
 
 # Custom CSS to style the app
-# Custom CSS to style the app
 st.markdown("""
     <style>
         .main {
@@ -95,26 +94,57 @@ if selected_menu == "Team":
     st.image(team_image, caption="Rakuten Project Team")
 
 elif selected_menu == "Problem":
+    # Displaying the banner image
     image_path = "Rakuten_challenge3.jpg"
     base64_image = get_base64_image(image_path)
     if base64_image:
-        st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}');"></div>""", unsafe_allow_html=True)
-    
+        st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}'); height: 250px;"></div>""", unsafe_allow_html=True)
+
+    # Problem Section Introduction
     st.markdown("""
-        
-        ### Challenge Overview:
-        - Classify products in Rakuten's e-commerce catalog using text and images.
-        - Multimodal classification problem; improves product categorization.
-        ### Data Source:
-        - Rakuten France Multimodal Product Data Classification Challenge.  
-        ### Validation:
-        - Competition site for validation and ranking. 
-    """)
+    <h1 style='color: #4a90e2; text-align: center; margin-bottom: 30px;'>Rakuten France Product Classification Challenge</h1>
+    """, unsafe_allow_html=True)
+
+    # Context
+    st.markdown("""
+    <h2 style='color: #343a40;'>Context</h2>
+    <p>The Rakuten Institute of Technology (RIT), Paris, is focusing on the large-scale, multimodal classification of products 
+    into predefined type codes using both text and images. This classification aids in improving search and recommendation systems 
+    on Rakuten's e-commerce platforms, where the vast range of products poses significant challenges for standard categorization techniques.</p>
+    """, unsafe_allow_html=True)
+
+    # Problem Description
+    st.markdown("""
+    <h2 style='color: #343a40;'>Problematic</h2>
+    <p>The challenge involves predicting each product's type code based on multimodal data (text and images) from the Rakuten France catalog. 
+    The use of advanced machine learning techniques to handle noisy, large-scale data sets from e-commerce platforms is central to this challenge.</p>
+    """, unsafe_allow_html=True)
+
+    # Aim
+    st.markdown("""
+    <h2 style='color: #343a40;'>Aim</h2>
+    <p>The main objective is to develop a classifier that can automatically categorize each product into the correct product type code, 
+    significantly reducing the reliance on manual categorization and improving the efficiency of the e-commerce platform's backend processes.</p>
+    """, unsafe_allow_html=True)
+
+    # Metric
+    st.markdown("""
+    <h2 style='color: #343a40;'>The Metric</h2>
+    <p>Submissions will be evaluated based on the <strong>weighted-F1 score</strong>, which considers both precision and recall, 
+    particularly important in unbalanced datasets typically found in commercial product catalogs.</p>
+    """, unsafe_allow_html=True)
+
+    # Data Source
+    st.markdown("""
+    <h2 style='color: #343a40;'>Data</h2>
+    <p>Data is provided for registered participants and includes images and text descriptions of products listed on Rakuten France's e-commerce site. 
+    This challenge presents a unique set of data, rich in diversity but also complexity due to the noisy and often incomplete information provided by sellers.</p>
+    """, unsafe_allow_html=True)
+
 
 
 # Placeholder for other sections
 if selected_menu == "Data":
-
     options = ["Target Variable", "Duplicates", "Image Issues", "Word Cloud"]
     choice = st.selectbox("Choose Visualization", options)
 
