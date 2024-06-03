@@ -16,7 +16,7 @@ def get_base64_image(image_path):
         st.error(f"File not found: {image_path}")
         return None
 
-# Custom CSS to style the app
+# Custom CSS to style the 
 st.markdown("""
     <style>
         .main {
