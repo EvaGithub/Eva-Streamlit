@@ -202,6 +202,51 @@ if page == "Data Analysis":
 if page == "Models":
     st.title("Models")
 
+    # Multimodal classification problem: two approaches
+    st.header("Multimodal classification problem: two approaches")
+    if st.button('Show Two Approaches Table'):
+        df_two_approaches = pd.read_csv("06 - Results/multimodal-two-methods.csv")
+        st.dataframe(df_two_approaches)
+
+    # Pre-trained text and vision models
+    st.header("Pre-trained text and vision models")
+    if st.button('Show Text Models Results'):
+        df_text_models = pd.read_csv("06 - Results/results-text-models.csv")
+        st.dataframe(df_text_models)
+
+    st.markdown("**Conclusion: Best performing text model: Camembert-base**")
+
+    if st.button('Show Vision Models Results'):
+        df_vision_models = pd.read_csv("06 - Results/results-vision-models.csv")
+        st.dataframe(df_vision_models)
+
+    st.markdown("**Conclusion: Best performing vision model: Google/VIT-base-patch16-224**")
+
+    # Multimodal experiments
+    st.header("Multimodal experiments")
+    if st.button('Show Multimodal Models Results'):
+        df_multimodal_models = pd.read_csv("06 - Results/results-multimodal-models.csv")
+        st.dataframe(df_multimodal_models)
+
+    st.markdown("""
+    **Conclusion: Best performing model: Separate training and fusion**
+    - Separate training and fusion method improved results by 25%.
+    - Independent training reduced noise and confusion.
+    - Higher confidence and overall better performance.
+    """)
+
+    # Separate training and fusion: Normalized confusion matrix
+    st.header("Separate training and fusion: Normalized confusion matrix")
+    st.markdown("""
+    - The best-performing classes are Computer Games (2905), Trading Card Games (1160), and Pool & Accessories (2583). 
+    - Role Playing Games (1180), Board Games (1281), and Children's Toys (1280) are frequently misclassified.
+    - The model often confuses semantically similar classes.
+    """)
+    if st.button('Show Confusion Matrix'):
+        confusion_matrix_image = "06 - Results/confusion_matrix_model_pred_score.jpg"
+        st.image(confusion_matrix_image, caption="Normalized Confusion Matrix")
+
+
 if page == "Models live demo":
     st.title("Models live demo")
     st.text_area("Item description", )
