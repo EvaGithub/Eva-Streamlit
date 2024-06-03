@@ -130,16 +130,6 @@ elif selected_menu == "Problem":
     """, unsafe_allow_html=True)
 
 
-
-    # The Data
-    st.markdown("""
-    <h2 style='color: #4a90e2;'>The Data:</h2>
-    <p>Data necessary for the challenge is exclusively available to registered participants. It includes detailed images and textual descriptions 
-    of a wide array of products listed on Rakuten France. This dataset is pivotal for training and testing the classification models.</p>
-    """, unsafe_allow_html=True)
-
-
-
 # Placeholder for other sections
 if selected_menu == "Data":
     options = ["Target Variable", "Duplicates", "Image Issues", "Word Cloud"]
