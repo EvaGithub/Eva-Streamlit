@@ -39,12 +39,13 @@ st.markdown("""
             color: #fff; /* White text on buttons */
         }
         h1, h2, h3, h4, h5, h6 {
-            color: #343a40; /* Dark grey for headings */
+            color: #003366; /* Updated to dark blue for headings */
         }
         .participants-title {
             font-size: 20px;
             font-weight: bold;
             margin-top: 20px; /* Space above the participants title */
+            color: #003366; /* Updated to dark blue for consistency */
         }
         .header-container {
             position: relative;
@@ -95,9 +96,9 @@ if selected_menu == "Team":
 
 elif selected_menu == "Problem":
     # Displaying the banner image
-    image_path = "Rakuten_challenge4.jpg"
+    image_path = "Rakuten_challenge5.jpg"
     if os.path.exists(image_path):
-        st.image(image_path, caption="Rakuten France Multimodal Product Classification Challenge", use_column_width=True)
+        st.image(image_path, use_column_width=True)  # No caption for a cleaner appearance
 
     # Display Challenge Provider and Link
     st.markdown("""
@@ -127,6 +128,7 @@ elif selected_menu == "Problem":
     <p>Data necessary for the challenge is exclusively available to registered participants. It includes detailed images and textual descriptions 
     of a wide array of products listed on Rakuten France. This dataset is pivotal for training and testing the classification models.</p>
     """, unsafe_allow_html=True)
+
 
 
     # The Data
