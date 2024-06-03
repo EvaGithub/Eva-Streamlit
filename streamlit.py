@@ -100,22 +100,42 @@ elif selected_menu == "Problem":
     if base64_image:
         st.markdown(f"""<div class="header-container" style="background-image: url('data:image/jpeg;base64,{base64_image}'); height: 250px;"></div>""", unsafe_allow_html=True)
 
+    # Adding custom styles for logo positioning and size
+    st.markdown("""
+    <style>
+        .logo {
+            width: 100px;  /* Control the size of the logo */
+            float: right;  /* Align the logo to the right */
+            margin-left: 10px; /* Space between the text and the logo */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
     # Context with RIT logo
     st.markdown("""
-    <h2 style='color: #343a40;'>Context</h2>
+    <div class="header">
+        <h2 style='color: #343a40;'>Context</h2>
+        <img src="Problem_02_RIT_logo_big.jpg" class="logo" alt="Rakuten Institute of Technology Logo">
+    </div>
     <p>The Rakuten Institute of Technology (RIT), Paris, is focusing on the large-scale, multimodal classification of products 
     into predefined type codes using both text and images. This classification aids in improving search and recommendation systems 
     on Rakuten's e-commerce platforms, where the vast range of products poses significant challenges for standard categorization techniques.</p>
     """, unsafe_allow_html=True)
-    st.image("Problem_02_RIT_logo_big.jpg", caption="Rakuten Institute of Technology")
 
     # Problem Description with Challenge Data logo
     st.markdown("""
-    <h2 style='color: #343a40;'>Problematic</h2>
+    <div class="header">
+        <h2 style='color: #343a40;'>Problematic</h2>
+        <img src="Problem_01_Challange_Data_Logo.png" class="logo" alt="Challenge Data Logo">
+    </div>
     <p>The challenge involves predicting each product's type code based on multimodal data (text and images) from the Rakuten France catalog. 
     The use of advanced machine learning techniques to handle noisy, large-scale data sets from e-commerce platforms is central to this challenge.</p>
     """, unsafe_allow_html=True)
-    st.image("Problem_01_Challange_Data_Logo.png", caption="Challenge Data")
 
     # Aim
     st.markdown("""
