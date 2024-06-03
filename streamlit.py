@@ -204,19 +204,19 @@ if page == "Models":
 
     # Multimodal classification problem: two approaches
     st.header("Multimodal classification problem: two approaches")
-    if st.button('Show Two Approaches Table'):
+    if st.checkbox('Show Two Approaches Table'):
         df_two_approaches = pd.read_csv("06 - Results/multimodal-two-methods.csv")
         st.dataframe(df_two_approaches)
 
     # Pre-trained text and vision models
     st.header("Pre-trained text and vision models")
-    if st.button('Show Text Models Results'):
+    if st.checkbox('Show Text Models Results'):
         df_text_models = pd.read_csv("06 - Results/results-text-models.csv")
         st.dataframe(df_text_models)
 
     st.markdown("**Conclusion: Best performing text model: Camembert-base**")
 
-    if st.button('Show Vision Models Results'):
+    if st.checkbox('Show Vision Models Results'):
         df_vision_models = pd.read_csv("06 - Results/results-vision-models.csv")
         st.dataframe(df_vision_models)
 
@@ -224,7 +224,7 @@ if page == "Models":
 
     # Multimodal experiments
     st.header("Multimodal experiments")
-    if st.button('Show Multimodal Models Results'):
+    if st.checkbox('Show Multimodal Models Results'):
         df_multimodal_models = pd.read_csv("06 - Results/results-multimodal-models.csv")
         st.dataframe(df_multimodal_models)
 
@@ -242,7 +242,7 @@ if page == "Models":
     - Role Playing Games (1180), Board Games (1281), and Children's Toys (1280) are frequently misclassified.
     - The model often confuses semantically similar classes.
     """)
-    if st.button('Show Confusion Matrix'):
+    if st.checkbox('Show Confusion Matrix'):
         confusion_matrix_csv = "06 - Results/confusion_matrix_model_pred_score.csv"
         confusion_matrix_df = pd.read_csv(confusion_matrix_csv, index_col=0)
         st.dataframe(confusion_matrix_df)  # Display as a dataframe
