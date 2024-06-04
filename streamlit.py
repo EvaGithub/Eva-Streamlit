@@ -88,6 +88,8 @@ image_word_cloud = streamlit_data_folder + "03 - Data/square_wordcloud.jpg"
 
 team_image = streamlit_data_folder + "01 - Team/Rakuten_team.png"
 
+rank_image = streamlit_data_folder + "06 - Results/ranking.png"
+
 st.sidebar.title("Data Science Bootcamp March 2024")
 st.sidebar.image("01 - Team/datascientest_logo.png")
 
@@ -289,6 +291,7 @@ if page == "Methods & Results":
     if st.checkbox('Test Results Benchmark'):
         df_results = pd.read_csv("06 - Results/test-results-benchmark.csv", index_col="Metric")
         st.dataframe(df_results)
+        st.image(rank_image, caption="Rakuten challenge site rank")
 
 if page == "Models & Live Demo":
     st.title("Models")
@@ -338,7 +341,9 @@ if page == "Future work":
     st.header("Models")
     st.subheader("There is still space for improvement")
     if st.checkbox("Show modelling action points"):
-        st.subheader("-Topic")
+        st.subheader("-Improve Performance")
+        st.subheader("-Reduce model memory footprint")
+        st.subheader("...Dedicated model?")
 
     st.header("MLFlow")
     st.subheader("Really good but...")
