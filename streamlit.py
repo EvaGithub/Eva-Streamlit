@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter, StrMethodFormatter
 import seaborn as sns
 import streamlit as st
+from streamlit_extras.app_logo import add_logo
 
 # from sklearn.model_selection import train_test_split
 # from sklearn.ensemble import RandomForestClassifier
@@ -13,6 +14,7 @@ import streamlit as st
 # from sklearn.svm import SVC
 # from sklearn.linear_model import LogisticRegression
 # from sklearn.metrics import confusion_matrix
+
 
 sns.palplot("pastel")
 sns.set_style("darkgrid")
@@ -86,6 +88,8 @@ image_word_cloud = streamlit_data_folder + "03 - Data/square_wordcloud.jpg"
 team_image = streamlit_data_folder + "01 - Team/Rakuten_team.png"
 
 st.sidebar.title("Data Science Bootcamp March 2024")
+st.sidebar.image("01 - Team/datascientest_logo.png")
+
 
 pages = ["Problem",
          "Data",
