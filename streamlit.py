@@ -167,17 +167,12 @@ if page == "Data Analysis":
     if st.checkbox("Show Repeated text Analysis"):
         fig, ax = plt.subplots()
         plt.title('Repeated description count')
-        sns.barplot(x=df_repeated_text.index, y=df_repeated_text.total, color='y', edgecolor='w',
-                    label='Total', ax=ax)
-        sns.barplot(x=df_repeated_text.index, y=df_repeated_text.total_repeated, color='g', edgecolor='w',
+        sns.barplot(x=df_repeated_text.index, y=df_repeated_text.total,
+                    order=df_repeated_text.sort_values("total", ascending=False).index,
+                    color='y', edgecolor='w', label='Total', ax=ax)
+        sns.barplot(x=df_repeated_text.index, y=df_repeated_text.total_repeated,
+                    order=df_repeated_text.sort_values("total", ascending=False).index, color='g', edgecolor='w',
                     label='Repeated', ax=ax)
-
-        # sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total,
-        #             order=df_repeated_images.sort_values("total", ascending=False).index, color='y', edgecolor='w',
-        #             label='Total', ax=ax)
-        # sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total_repeated,
-        #             order=df_repeated_images.sort_values("total", ascending=False).index, color='g', edgecolor='w',
-        #             label='Repeated', ax=ax)
 
         plt.xlabel('Category', fontsize=13)
         plt.ylabel('Count', fontsize=13)
@@ -328,12 +323,15 @@ if page == "Models & Live Demo":
 
     st.header("Live Demo:")
     st.subheader(model)
-    st.text_area("Item description", )
-    st.text_area("Item image", )
-    # clf = prediction(model)
-    # predicted = clf.predict(text, image)
-    predicted = 1301
-    st.write(f"Detected class:", df_classes[df_classes["Prdtypecode"] == predicted])
+    st.text_area("Item description", placeholder="This is the google logo. Can you believe Rakuten sells even THAT?")
+    st.text_area("Item image URL",
+                 placeholder="https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png")
+    if st.button("Evaluate"):
+        # clf = prediction(model)
+        # predicted = clf.predict(text, image)
+        # predicted = 1301
+        predicted = df_classes.sample()
+        st.write(f"Detected class: (Random dummy :'( )", predicted)
 
 if page == "Future work":
     st.title("Future work")
@@ -342,18 +340,19 @@ if page == "Future work":
     st.subheader("There is still space for improvement")
     if st.checkbox("Show modelling action points"):
         st.subheader("-Improve Performance (further model specialization?)")
-        st.subheader("...Dedicated model?")
         st.subheader("-Reduce model memory footprint")
+        st.subheader("...Dedicated model?")
 
     st.header("MLFlow")
     st.subheader("Really good but...")
     if st.checkbox("Show MLFlow action points"):
         st.subheader("-Not able to expose local server")
-        st.subheader("...Lost ability to _centralize tests_, _track results_, _reproduce experiments_ and _expose API_. Ended up loosing experiments data. :'( ")
+        st.subheader(
+            "...Lost ability to _centralize tests_, _track results_, _reproduce experiments_ and _expose API_. Ended up loosing experiments data. :'( ")
 
     st.header("StreamLit")
     st.subheader("Can be improved")
     if st.checkbox("Show StreamLit action points"):
-        st.subheader("-Add experiments missing results")
+        st.subheader("-Add missing experiment results")
         st.subheader("-Live Demo feature?")
-        st.subheader("...(no api, no storage, no time. :'( )")
+        st.subheader("...No _API_, no _storage_, no _time_. :'(")
