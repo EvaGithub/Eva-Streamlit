@@ -231,7 +231,7 @@ if page == "Methods & Results":
     # Multimodal classification problem: two approaches
     st.header("Multimodal classification problem: two approaches")
     if st.checkbox('Show Two Approaches Table'):
-        df_two_approaches = pd.read_csv("06 - Results/multimodal-two-methods.csv")
+        df_two_approaches = pd.read_csv("06 - Results/multimodal-two-methods2.csv")
         st.dataframe(df_two_approaches)
 
     # Pre-trained text and vision models
