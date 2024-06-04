@@ -214,9 +214,9 @@ if page == "Data Analysis":
                     label='Total', ax=ax, palette=sns.color_palette("Purples_r", n_colors=45))
         plt.xlabel('Count', fontsize=13)
         plt.ylabel('Words', fontsize=13)
-        # ax.set_yticklabels(df_word_frequency.index, fontsize=10)
+        ax.set_yticklabels(df_word_frequency.index, fontsize=10)
         #
-        ax.yaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}'))
+        # ax.yaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}'))
         st.pyplot(fig)
 
     if st.checkbox("Show visual word frequency analysis"):
