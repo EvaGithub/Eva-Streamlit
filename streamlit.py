@@ -164,12 +164,19 @@ if page == "Data Analysis":
     if st.checkbox("Show Repeated text Analysis"):
         fig, ax = plt.subplots()
         plt.title('Repeated description count')
-        sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total,
-                    order=df_repeated_images.sort_values("total", ascending=False).index, color='y', edgecolor='w',
+        sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total, color='y', edgecolor='w',
                     label='Total', ax=ax)
-        sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total_repeated,
-                    order=df_repeated_images.sort_values("total", ascending=False).index, color='g', edgecolor='w',
+        sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total_repeated, color='g', edgecolor='w',
                     label='Repeated', ax=ax)
+
+        # sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total,
+        #             order=df_repeated_images.sort_values("total", ascending=False).index, color='y', edgecolor='w',
+        #             label='Total', ax=ax)
+        # sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total_repeated,
+        #             order=df_repeated_images.sort_values("total", ascending=False).index, color='g', edgecolor='w',
+        #             label='Repeated', ax=ax)
+
+
         plt.xlabel('Category', fontsize=13)
         plt.ylabel('Count', fontsize=13)
         ax.tick_params(axis='x', rotation=90)
