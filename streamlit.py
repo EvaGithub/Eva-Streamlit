@@ -1,4 +1,5 @@
 import pandas as pd
+import os.path
 import numpy as np
 # from PIL import Image
 import matplotlib.pyplot as plt
@@ -102,7 +103,7 @@ models = ["Word Bagging + Gradient Boosting",
           "Voting Classifier (Word Bagging + Gradient, Word Bagging + Tree, Custom CNN)",
           "Google VIT-base-patch16-224",
           "Google VIT-base-patch16-224-in21k",
-          "Bert",
+          "BERT",
           "CamemBERT",
           "XLM-Roberta-base",
           "Multi-Model Concatenate",
@@ -286,23 +287,29 @@ if page == "Models & Live Demo":
                  disabled=True, height=150)
 
     if st.checkbox("Show Confusion Matrix HeatMap"):
-        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/" + model + ".csv", index_col="class")
+        file_name = "06 - Results/Confusion Matrices/" + model + ".csv"
+        if not os.path.isfile(file_name):
+            file_name = "06 - Results/Confusion Matrices/Template.csv"
+        df_heatmap = pd.read_csv(file_name, index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title(model + ": Confusion Matrix HeatMap")
         # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
         sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.2f")
         st.pyplot(fig)
 
+    if st.checkbox("Show Results"):
+        file_name = "06 - Results/Results/" + model + ".csv"
+        if not os.path.isfile(file_name):
+            file_name = "06 - Results/Results/Template.csv"
+        df_results = pd.read_csv(file_name, index_col="category")
+        st.dataframe(df_results)
+
     if st.checkbox("Show Accuracy"):
-        df_accuracy = pd.read_csv("06 - Results/Accuracy/" + model + ".csv", index_col="category")
+        file_name = "06 - Results/Accuracy/" + model + ".csv"
+        if not os.path.isfile(file_name):
+            file_name = "06 - Results/Accuracy/Template.csv"
+        df_accuracy = pd.read_csv(file_name, index_col="metric")
         st.dataframe(df_accuracy)
-
-
-    if st.checkbox('Show Test Set Results Table'):
-        test_results_path = "06 - Results/test-resuls-benchmark.csv"
-        test_results_df = pd.read_csv(test_results_path)
-        st.dataframe(test_results_df)
-
 
     st.header("Live Demo:")
     st.subheader(model)
