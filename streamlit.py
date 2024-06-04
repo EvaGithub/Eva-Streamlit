@@ -59,14 +59,14 @@ def scores(clf, choice):
 streamlit_data_folder = ""
 
 # st.title("Data Science Bootcamp March 2024")
-df_repeated_images = pd.read_csv(streamlit_data_folder + "03 - Data/Repeated Images Report.csv", index_col="category")
+df_repeated_images = pd.read_csv(streamlit_data_folder + "04 - Data Analysis/Reports/Repeated Images.csv", index_col="category")
 df_repeated_images.drop(["unique_repeated"], axis=1, inplace=True)
 df_repeated_images.drop(["test"], axis=0, inplace=True)
 
-df_classes = pd.read_csv(streamlit_data_folder + "03 - Data/categories.csv")
+df_classes = pd.read_csv(streamlit_data_folder + "04 - Data Analysis/Reports/categories.csv")
 df_classes = df_classes.astype({"Prdtypecode": object})
 
-df_repeated_text = pd.read_csv(streamlit_data_folder + "03 - Data/Repeated Text Report.csv", index_col="category")
+df_repeated_text = pd.read_csv(streamlit_data_folder + "04 - Data Analysis/Reports/Repeated Text.csv", index_col="category")
 df_repeated_text.drop(["unique_repeated"], axis=1, inplace=True)
 df_repeated_text.drop(["test"], axis=0, inplace=True)
 
@@ -84,7 +84,7 @@ image_placeholder_samples = [image_placeholder_samples_folder + "image_119025201
                              image_placeholder_samples_folder + "image_1271791205_product_2994592691.jpg",
                              image_placeholder_samples_folder + "image_1271791205_product_3894592691.jpg"]
 
-image_word_cloud = streamlit_data_folder + "03 - Data/square_wordcloud.jpg"
+image_word_cloud = streamlit_data_folder + "03 - Data/Textual Samples/square_wordcloud.jpg"
 
 team_image = streamlit_data_folder + "01 - Team/Rakuten_team.png"
 
@@ -204,7 +204,7 @@ if page == "Data Analysis":
 
     st.header("Word Cloud")
     if st.checkbox("Show most frequent words"):
-        df_word_frequency = pd.read_csv(streamlit_data_folder + "03 - Data/Word Frequency Report.csv",
+        df_word_frequency = pd.read_csv(streamlit_data_folder + "04 - Data Analysis/Reports/Word Frequency.csv",
                                         index_col="words")
         fig, ax = plt.subplots()
         plt.title('Most frequent words')
