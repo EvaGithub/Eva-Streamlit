@@ -294,9 +294,9 @@ if page == "Models & Live Demo":
                  disabled=True, height=150)
 
     if st.checkbox("Show Confusion Matrix HeatMap"):
-        file_name = "06 - Results/Confusion Matrices/" + model + ".csv"
+        file_name = "06 - Methods & Results/Confusion Matrices/" + model + ".csv"
         if not os.path.isfile(file_name):
-            file_name = "06 - Results/Confusion Matrices/Template.csv"
+            file_name = "06 - Methods & Results/Confusion Matrices/Template.csv"
         df_heatmap = pd.read_csv(file_name, index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title(model + ": Confusion Matrix HeatMap")
@@ -305,16 +305,16 @@ if page == "Models & Live Demo":
         st.pyplot(fig)
 
     if st.checkbox("Show Results"):
-        file_name = "06 - Results/Results/" + model + ".csv"
+        file_name = "06 - Methods & Results/Results/" + model + ".csv"
         if not os.path.isfile(file_name):
-            file_name = "06 - Results/Results/Template.csv"
+            file_name = "06 - Methods & Results/Results/Template.csv"
         df_results = pd.read_csv(file_name, index_col="category")
         st.dataframe(df_results)
 
     if st.checkbox("Show Accuracy"):
-        file_name = "06 - Results/Accuracy/" + model + ".csv"
+        file_name = "06 - Methods & Results/Accuracy/" + model + ".csv"
         if not os.path.isfile(file_name):
-            file_name = "06 - Results/Accuracy/Template.csv"
+            file_name = "06 - Methods & Results/Accuracy/Template.csv"
         df_accuracy = pd.read_csv(file_name, index_col="metric")
         st.dataframe(df_accuracy)
 
