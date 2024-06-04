@@ -341,9 +341,9 @@ if page == "Future work":
     st.header("Models")
     st.subheader("There is still space for improvement")
     if st.checkbox("Show modelling action points"):
-        st.subheader("-Improve Performance")
-        st.subheader("-Reduce model memory footprint")
+        st.subheader("-Improve Performance (further model specialization?)")
         st.subheader("...Dedicated model?")
+        st.subheader("-Reduce model memory footprint")
 
     st.header("MLFlow")
     st.subheader("Really good but...")
