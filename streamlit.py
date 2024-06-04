@@ -60,14 +60,16 @@ streamlit_data_folder = ""
 
 # st.title("Data Science Bootcamp March 2024")
 df_repeated_images = pd.read_csv(streamlit_data_folder + "03 - Data/Repeated Images Report.csv", index_col="category")
-
 df_repeated_images.drop(["unique_repeated"], axis=1, inplace=True)
 df_repeated_images.drop(["test"], axis=0, inplace=True)
 
 df_classes = pd.read_csv(streamlit_data_folder + "03 - Data/categories.csv")
 df_classes = df_classes.astype({"Prdtypecode": object})
 
-df_repeated_text = df_repeated_images
+df_repeated_text = pd.read_csv(streamlit_data_folder + "03 - Data/Repeated Text Report.csv", index_col="category")
+df_repeated_text.drop(["unique_repeated"], axis=1, inplace=True)
+df_repeated_text.drop(["test"], axis=0, inplace=True)
+
 
 image_samples_folder = streamlit_data_folder + "03 - Data/Image Samples/"
 image_samples = [image_samples_folder + "image_1186985707_product_3040901566.jpg",
@@ -166,9 +168,9 @@ if page == "Data Analysis":
     if st.checkbox("Show Repeated text Analysis"):
         fig, ax = plt.subplots()
         plt.title('Repeated description count')
-        sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total, color='y', edgecolor='w',
+        sns.barplot(x=df_repeated_text.index, y=df_repeated_text.total, color='y', edgecolor='w',
                     label='Total', ax=ax)
-        sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total_repeated, color='g', edgecolor='w',
+        sns.barplot(x=df_repeated_text.index, y=df_repeated_text.total_repeated, color='g', edgecolor='w',
                     label='Repeated', ax=ax)
 
         # sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total,
