@@ -70,7 +70,6 @@ df_repeated_text = pd.read_csv(streamlit_data_folder + "03 - Data/Repeated Text 
 df_repeated_text.drop(["unique_repeated"], axis=1, inplace=True)
 df_repeated_text.drop(["test"], axis=0, inplace=True)
 
-
 image_samples_folder = streamlit_data_folder + "03 - Data/Image Samples/"
 image_samples = [image_samples_folder + "image_1186985707_product_3040901566.jpg",
                  image_samples_folder + "image_1205931587_product_3314026358.jpg",
@@ -92,7 +91,6 @@ team_image = streamlit_data_folder + "01 - Team/Rakuten_team.png"
 st.sidebar.title("Data Science Bootcamp March 2024")
 st.sidebar.image("01 - Team/datascientest_logo.png")
 
-
 pages = ["Problem",
          "Data",
          "Data Analysis",
@@ -112,7 +110,6 @@ models = ["Word Bagging + Gradient Boosting",
           "XLM-Roberta-base",
           "Multi-Model Concatenate",
           "Multi-Model Score"]
-
 
 page = st.sidebar.radio("Table of contents", pages, index=0)
 
@@ -179,7 +176,6 @@ if page == "Data Analysis":
         # sns.barplot(x=df_repeated_images.index, y=df_repeated_images.total_repeated,
         #             order=df_repeated_images.sort_values("total", ascending=False).index, color='g', edgecolor='w',
         #             label='Repeated', ax=ax)
-
 
         plt.xlabel('Category', fontsize=13)
         plt.ylabel('Count', fontsize=13)
@@ -279,9 +275,8 @@ if page == "Methods & Results":
         df_heatmap = pd.read_csv("06 - Methods & Results/Confusion Matrices/Multi-Model Score.csv", index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title("MultiModel: Normalized Confusion Matrix HeatMap")
-        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Blues", fmt="0.2f")
+        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize": 8}, cmap="Blues", fmt="0.2f")
         st.pyplot(fig)
-
 
     # Test set results subsection
     st.header("Test set results")
@@ -311,7 +306,7 @@ if page == "Models & Live Demo":
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title(model + ": Confusion Matrix HeatMap")
         # sns.heatmap(df_heatmap, annot=True, ax=ax, cmap="coolwarm", fmt="1.0f")
-        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Purples", fmt="0.2f")
+        sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize": 8}, cmap="Purples", fmt="0.2f")
         st.pyplot(fig)
 
     if st.checkbox("Show Results"):
@@ -337,8 +332,27 @@ if page == "Models & Live Demo":
     predicted = 1301
     st.write(f"Detected class:", df_classes[df_classes["Prdtypecode"] == predicted])
 
-
-
-
 if page == "Future work":
     st.title("Future work")
+
+    st.header("Models")
+    st.subheader("There is still space for improvement")
+    if st.checkbox("Show modelling action points"):
+        st.subheader("-Topic")
+
+    st.header("MLFlow")
+    st.subheader("Really good but became a problem.")
+    if st.checkbox("Show MLFlow action points"):
+        st.subheader("-Not able to expose local server")
+        st.subheader("-Lost ability to centralize tests")
+        st.subheader("-Lost ability to track and test results")
+        st.subheader("-Lost ability to reproduce experiments")
+        st.subheader("-Lost ability to expose API")
+        st.subheader("-Ended up loosing experiments data :'( ")
+
+    st.header("StreamLit")
+    st.subheader("Can be improved")
+    if st.checkbox("Show StreamLit action points"):
+        st.subheader("-Add missing data for all models")
+        st.subheader("-Live Demo feature?")
+        st.subheader("...(no api, no storage, no time. X( )")
