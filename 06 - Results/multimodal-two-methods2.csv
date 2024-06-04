@@ -1,4 +1,0 @@
-Multimodal training,Seperate training and fusion 
-"Encoders: Uses two separate encoders for each modality, with a late fusion strategy.",Encoders: Text and vision models are trained separately.
-"Training: Combined representation from both encoders is used to train a classifier head, both the encoders are trained together.",Training: Each model is independently trained for its specific modality.
-Prediction: The classifier's output is based on the fused features from both modalities.,"Prediction: Final prediction is based on the model with the highest confidence, using combined prediction scores."

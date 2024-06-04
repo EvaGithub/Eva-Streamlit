@@ -88,7 +88,7 @@ image_word_cloud = streamlit_data_folder + "03 - Data/square_wordcloud.jpg"
 
 team_image = streamlit_data_folder + "01 - Team/Rakuten_team.png"
 
-rank_image = streamlit_data_folder + "06 - Results/ranking.png"
+rank_image = streamlit_data_folder + "05 - Methods & Results/ranking.png"
 
 st.sidebar.title("Data Science Bootcamp March 2024")
 st.sidebar.image("01 - Team/datascientest_logo.png")
@@ -230,19 +230,19 @@ if page == "Methods & Results":
     # Multimodal classification problem: two approaches
     st.header("Multimodal classification problem: two approaches")
     if st.checkbox('Show Two Approaches Table'):
-        df_two_approaches = pd.read_csv("06 - Results/multimodal-two-methods2.csv")
+        df_two_approaches = pd.read_csv("05 - Methods & Results/multimodal-two-methods2.csv")
         st.dataframe(df_two_approaches)
 
     # Pre-trained text and vision models
     st.header("Pre-trained text and vision models")
     if st.checkbox('Show Text Models Results'):
-        df_text_models = pd.read_csv("06 - Results/results-text-models.csv")
+        df_text_models = pd.read_csv("05 - Methods & Results/results-text-models.csv")
         st.dataframe(df_text_models)
 
     st.markdown("**Conclusion: Best performing text model: Camembert-base**")
 
     if st.checkbox('Show Vision Models Results'):
-        df_vision_models = pd.read_csv("06 - Results/results-vision-models.csv")
+        df_vision_models = pd.read_csv("05 - Methods & Results/results-vision-models.csv")
         st.dataframe(df_vision_models)
 
     st.markdown("**Conclusion: Best performing vision model: Google/VIT-base-patch16-224**")
@@ -250,7 +250,7 @@ if page == "Methods & Results":
     # Multimodal experiments
     st.header("Multimodal experiments")
     if st.checkbox('Show Multimodal Models Results'):
-        df_multimodal_models = pd.read_csv("06 - Results/results-multimodal-models.csv")
+        df_multimodal_models = pd.read_csv("05 - Methods & Results/results-multimodal-models.csv")
         st.dataframe(df_multimodal_models)
 
     st.markdown("""
@@ -269,7 +269,7 @@ if page == "Methods & Results":
     """)
 
     if st.checkbox('Show Confusion Matrix'):
-        df_heatmap = pd.read_csv("06 - Methods & Results/Confusion Matrices/Multi-Model Score.csv", index_col="class")
+        df_heatmap = pd.read_csv("05 - Methods & Results/Confusion Matrices/Multi-Model Score.csv", index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title("MultiModel: Normalized Confusion Matrix HeatMap")
         sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize": 8}, cmap="Blues", fmt="0.2f")
@@ -284,7 +284,7 @@ if page == "Methods & Results":
     """)
 
     if st.checkbox('Test Results Benchmark'):
-        df_results = pd.read_csv("06 - Results/test-results-benchmark.csv", index_col="Metric")
+        df_results = pd.read_csv("05 - Methods & Results/test-results-benchmark.csv", index_col="Metric")
         st.dataframe(df_results)
         st.image(rank_image, caption="Rakuten challenge site rank")
 
@@ -297,9 +297,9 @@ if page == "Models & Live Demo":
                  disabled=True, height=150)
 
     if st.checkbox("Show Confusion Matrix HeatMap"):
-        file_name = "06 - Methods & Results/Confusion Matrices/" + model + ".csv"
+        file_name = "05 - Methods & Results/Confusion Matrices/" + model + ".csv"
         if not os.path.isfile(file_name):
-            file_name = "06 - Methods & Results/Confusion Matrices/Template.csv"
+            file_name = "05 - Methods & Results/Confusion Matrices/Template.csv"
         df_heatmap = pd.read_csv(file_name, index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title(model + ": Confusion Matrix HeatMap")
@@ -308,16 +308,16 @@ if page == "Models & Live Demo":
         st.pyplot(fig)
 
     if st.checkbox("Show Results"):
-        file_name = "06 - Methods & Results/Results/" + model + ".csv"
+        file_name = "05 - Methods & Results/Results/" + model + ".csv"
         if not os.path.isfile(file_name):
-            file_name = "06 - Methods & Results/Results/Template.csv"
+            file_name = "05 - Methods & Results/Results/Template.csv"
         df_results = pd.read_csv(file_name, index_col="category")
         st.dataframe(df_results)
 
     if st.checkbox("Show Accuracy"):
-        file_name = "06 - Methods & Results/Accuracy/" + model + ".csv"
+        file_name = "05 - Methods & Results/Accuracy/" + model + ".csv"
         if not os.path.isfile(file_name):
-            file_name = "06 - Methods & Results/Accuracy/Template.csv"
+            file_name = "05 - Methods & Results/Accuracy/Template.csv"
         df_accuracy = pd.read_csv(file_name, index_col="metric")
         st.dataframe(df_accuracy)
 
@@ -331,7 +331,7 @@ if page == "Models & Live Demo":
         # predicted = clf.predict(text, image)
         # predicted = 1301
         predicted = df_classes.sample()
-        st.write(f"Detected class: (Random dummy :'( )", predicted)
+        st.write(f"Detected class: (Random dummy... For now?)", predicted)
 
 if page == "Future work":
     st.title("Future work")
