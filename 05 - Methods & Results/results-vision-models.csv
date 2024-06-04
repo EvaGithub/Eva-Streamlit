@@ -1,3 +1,4 @@
 Model,Precision,Recall,F1-score
+Custom CNN,0.2367,0.2611,0.3237
 VIT-base-patch16-224,0.69,0.68,0.69
 VIT-base-patch16-224-in21k,0.67,0.67,0.68

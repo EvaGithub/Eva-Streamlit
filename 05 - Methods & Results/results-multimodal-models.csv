@@ -1,5 +1,4 @@
-Metric,Multimodal Training,Separate Training and Fusion
-Accuracy,0.6361,0.8927
-Precision,0.6447,0.8919
-Recall,0.6361,0.8927
-F1 Score,0.6336,0.8917
+Model,Accuracy,Precision,Recall,F1 Score
+Voting (Word Bagging + CNN),0.71,0.70,0.71,0.72
+Multimodal Training,0.6361,0.6447,0.6361,0.6336
+Separate Training and Fusion,0.8927,0.8919,0.8927,0.8917
