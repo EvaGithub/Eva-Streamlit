@@ -1,0 +1,4 @@
+metric,precision,recall,f1-score,support
+accuracy,,,,
+macro avg,,,,
+weighted avg,,,,
