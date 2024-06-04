@@ -285,6 +285,10 @@ if page == "Methods & Results":
     - It also demonstrates that our model is well-generalized and not overfitted.
     """)
 
+    if st.checkbox('Test Results Benchmark'):
+        df_results = pd.read_csv("06 - Results/test-results-benchmark.csv", index_col="Metric")
+        st.dataframe(df_results)
+
 if page == "Models & Live Demo":
     st.title("Models")
     model = st.selectbox('Chosen model', models)
