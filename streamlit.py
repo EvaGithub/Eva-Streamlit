@@ -341,18 +341,14 @@ if page == "Future work":
         st.subheader("-Topic")
 
     st.header("MLFlow")
-    st.subheader("Really good but became a problem.")
+    st.subheader("Really good but...")
     if st.checkbox("Show MLFlow action points"):
         st.subheader("-Not able to expose local server")
-        st.subheader("-Lost ability to centralize tests")
-        st.subheader("-Lost ability to track and test results")
-        st.subheader("-Lost ability to reproduce experiments")
-        st.subheader("-Lost ability to expose API")
-        st.subheader("-Ended up loosing experiments data :'( ")
+        st.subheader("...Lost ability to _centralize tests_, _track results_, _reproduce experiments_ and _expose API_. Ended up loosing experiments data. :'( ")
 
     st.header("StreamLit")
     st.subheader("Can be improved")
     if st.checkbox("Show StreamLit action points"):
-        st.subheader("-Add missing data for all models")
+        st.subheader("-Add experiments missing results")
         st.subheader("-Live Demo feature?")
-        st.subheader("...(no api, no storage, no time. X( )")
+        st.subheader("...(no api, no storage, no time. :'( )")
