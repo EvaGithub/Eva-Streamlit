@@ -67,8 +67,6 @@ df_classes = df_classes.astype({"Prdtypecode": object})
 
 df_repeated_text = df_repeated_images
 
-df_word_frequency = df_repeated_images
-
 image_samples_folder = streamlit_data_folder + "03 - Data/Image Samples/"
 image_samples = [image_samples_folder + "image_1186985707_product_3040901566.jpg",
                  image_samples_folder + "image_1205931587_product_3314026358.jpg",
@@ -207,18 +205,20 @@ if page == "Data Analysis":
 
     st.header("Word Cloud")
     if st.checkbox("Show most frequent words"):
+        df_word_frequency = pd.read_csv(streamlit_data_folder + "03 - Data/Word Frequency Report.csv",
+                                        index_col="words")
         fig, ax = plt.subplots()
         plt.title('Most frequent words')
-        sns.set_color_codes("muted")
         sns.barplot(y=df_word_frequency.index, x=df_word_frequency.total,
                     order=df_word_frequency.sort_values("total", ascending=False).index, edgecolor='w',
-                    label='Total', ax=ax)
-        plt.xlabel('Category', fontsize=13)
-        plt.ylabel('Count', fontsize=13)
-        ax.tick_params(axis='x', rotation=90)
+                    label='Total', ax=ax, palette=sns.color_palette("Purples_r", n_colors=45))
+        plt.xlabel('Count', fontsize=13)
+        plt.ylabel('Words', fontsize=13)
+        # ax.set_yticklabels(df_word_frequency.index, fontsize=10)
+        #
         ax.yaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}'))
-        plt.legend()
         st.pyplot(fig)
+
     if st.checkbox("Show visual word frequency analysis"):
         st.image(image_word_cloud)
 
@@ -270,7 +270,7 @@ if page == "Methods & Results":
     """)
 
     if st.checkbox('Show Confusion Matrix'):
-        df_heatmap = pd.read_csv("06 - Results/Confusion Matrices/Multi-Model Score.csv", index_col="class")
+        df_heatmap = pd.read_csv("06 - Methods & Results/Confusion Matrices/Multi-Model Score.csv", index_col="class")
         fig, ax = plt.subplots(figsize=(12, 12))
         plt.title("MultiModel: Normalized Confusion Matrix HeatMap")
         sns.heatmap(df_heatmap, annot=True, annot_kws={"fontsize":8}, cmap="Blues", fmt="0.2f")
